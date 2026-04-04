@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You&i 結 | あらゆる人の理解者となり、想いの結び目をつくる</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lav:#b8afd6;--sage:#a8c4b0;--blush:#e8b4b8;--gold:#c8b87a;--sky:#9ecad8;
+  --ink:#2a2a35;--mist:#f4f2f0;--tl:#6b6b7a;
+  --g1:linear-gradient(135deg,#e8dff5,#ddf0e8,#fce8ea);
+  --g2:linear-gradient(120deg,#c8d8f0,#e0d0f0,#f0d8e0);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--mist);color:var(--ink);min-height:100vh}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(254,254,254,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(184,175,214,.2);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;cursor:pointer;color:var(--ink);display:flex;align-items:center;gap:10px;background:none;border:none}
+.logo span{font-family:'Noto Serif JP',serif;font-size:1.1rem;color:var(--lav)}
+.navlinks{display:flex;gap:6px}
+.navlinks button{background:none;border:none;cursor:pointer;font-family:'Noto Sans JP',sans-serif;font-size:.8rem;letter-spacing:.08em;color:var(--tl);padding:6px 14px;border-radius:20px;transition:all .25s}
+.navlinks button:hover,.navlinks button.act{background:var(--lav);color:#fff}
+
+/* PAGES */
+.pg{display:none;min-height:100vh;padding-top:64px}
+.pg.on{display:block;animation:fi .5s ease}
+@keyframes fi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* COMMON */
+.sec{padding:80px 40px;max-width:1100px;margin:0 auto}
+.lbl{font-size:.7rem;letter-spacing:.3em;color:var(--lav);text-transform:uppercase;margin-bottom:16px;font-weight:500}
+.stitle{font-family:'Noto Serif JP',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:300;line-height:1.6;margin-bottom:24px;color:var(--ink)}
+.sbody{font-size:.95rem;line-height:2.2;color:var(--tl);max-width:700px}
+.divider{height:1px;background:linear-gradient(to right,transparent,var(--lav),transparent);margin:0 40px;opacity:.3}
+.btn{display:inline-block;padding:14px 40px;background:linear-gradient(135deg,var(--lav),var(--sky));color:#fff;border:none;border-radius:40px;font-family:'Noto Sans JP',sans-serif;font-size:.9rem;letter-spacing:.1em;cursor:pointer;transition:all .3s;box-shadow:0 8px 24px rgba(184,175,214,.4)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(184,175,214,.5)}
+
+/* ORBS */
+.orbs{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.orb{position:absolute;border-radius:50%;opacity:.16}
+.o1{width:300px;height:300px;background:var(--lav);top:-80px;left:-60px;animation:fl1 8s ease-in-out infinite}
+.o2{width:200px;height:200px;background:var(--blush);bottom:60px;right:-40px;animation:fl1 9s ease-in-out infinite 2s}
+.o3{width:150px;height:150px;background:var(--sky);top:40%;right:5%;animation:fl1 7s ease-in-out infinite 4s}
+.o4{width:100px;height:100px;background:var(--sage);bottom:20%;left:8%;animation:fl1 10s ease-in-out infinite 1s}
+@keyframes fl1{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+
+/* HOME HERO */
+.hero{min-height:100vh;background:var(--g1);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 40px 60px;position:relative;overflow:hidden}
+.htags{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+.htag{font-size:.72rem;letter-spacing:.15em;padding:6px 18px;border-radius:20px;border:1px solid rgba(184,175,214,.4);color:var(--tl);background:rgba(255,255,255,.6)}
+.hbrand{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,8vw,6.5rem);font-weight:300;background:linear-gradient(135deg,var(--lav),var(--blush),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:8px}
+.hkanji{font-family:'Noto Serif JP',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;letter-spacing:.3em;color:var(--lav);opacity:.8;margin-bottom:32px}
+.hmiss{font-family:'Noto Serif JP',serif;font-size:clamp(1rem,2.5vw,1.25rem);font-weight:300;line-height:2;color:var(--ink);opacity:.75;margin-bottom:48px}
+.hmiss em{font-style:normal;color:var(--lav);font-weight:400}
+.scroll{margin-top:64px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.45;font-size:.7rem;letter-spacing:.2em;color:var(--tl);animation:bo 2s ease-in-out infinite}
+.scroll::after{content:'';display:block;width:1px;height:40px;background:linear-gradient(to bottom,var(--lav),transparent)}
+@keyframes bo{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* HOME CARDS */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:48px}
+.card{background:#fff;border-radius:20px;padding:36px;border:1px solid rgba(184,175,214,.15);box-shadow:0 4px 24px rgba(0,0,0,.04);transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.08)}
+.ctag{font-size:.7rem;letter-spacing:.2em;color:var(--tl);margin-bottom:12px}
+.ctitle{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;margin-bottom:12px;color:var(--ink)}
+.cdesc{font-size:.85rem;line-height:1.9;color:var(--tl)}
+.carrow{display:inline-block;margin-top:20px;font-size:.75rem;letter-spacing:.15em;color:var(--lav)}
+
+/* MISSION */
+.mhero{min-height:60vh;background:var(--g2);display:flex;align-items:center;justify-content:center;padding:80px 40px;text-align:center}
+.mhero .big{font-family:'Noto Serif JP',serif;font-size:clamp(1.4rem,4vw,2.8rem);font-weight:300;line-height:1.9}
+.mhero .big em{font-style:normal;color:var(--lav)}
+.mhero .big strong{color:var(--blush)}
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:80px 40px;max-width:1100px;margin:0 auto}
+.stxt h3{font-family:'Noto Serif JP',serif;font-size:1.5rem;font-weight:300;margin-bottom:20px;color:var(--ink)}
+.stxt p{font-size:.92rem;line-height:2.4;color:var(--tl)}
+.svis{display:flex;align-items:center;justify-content:center;background:var(--mist);border-radius:24px;padding:48px;aspect-ratio:1/1;position:relative;overflow:hidden}
+.svis .vnum{font-family:'Cormorant Garamond',serif;font-size:8rem;font-weight:300;opacity:.08;position:absolute;color:var(--ink);line-height:1}
+.svis .vtxt{font-family:'Noto Serif JP',serif;font-size:1.1rem;font-weight:300;text-align:center;line-height:2.2;color:var(--tl);position:relative;z-index:1}
+.svis .vtxt strong{color:var(--lav);font-weight:400;display:block;font-size:1.4rem;margin-bottom:8px}
+.kwsec{background:#fff;padding:80px 40px;text-align:center}
+.kwblocks{display:grid;grid-template-columns:1fr auto 1fr;max-width:900px;margin:48px auto 0;align-items:start}
+.kwblock{display:flex;flex-direction:column;align-items:center;gap:14px;padding:0 32px}
+.kwlabel{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;font-weight:500;padding:4px 16px;border-radius:20px;margin-bottom:4px}
+.kwlabel-n{color:#a89898;background:#f7f5f5;border:1px solid #ece8e8}
+.kwlabel-p{color:var(--lav);background:rgba(184,175,214,.1);border:1px solid rgba(184,175,214,.25)}
+.kwtags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.kw{padding:9px 20px;border-radius:40px;font-size:.82rem;font-family:'Noto Serif JP',serif;font-weight:300;letter-spacing:.05em}
+.kwn{background:#f7f5f5;color:#a89898;border:1px solid #ece8e8}
+.kwp{background:linear-gradient(135deg,rgba(184,175,214,.12),rgba(158,202,216,.12));color:var(--lav);border:1px solid rgba(184,175,214,.3)}
+.kwarrow{display:flex;align-items:center;justify-content:center;padding-top:52px}
+.kwarrow-inner{display:flex;flex-direction:column;align-items:center;gap:4px}
+.kwarrow-inner::before{content:'';display:block;width:1px;height:48px;background:linear-gradient(to bottom,#e0e0e8,rgba(184,175,214,.5))}
+.kwarrow-inner::after{content:'';display:block;width:1px;height:48px;background:linear-gradient(to bottom,rgba(184,175,214,.5),transparent)}
+.kwarrow-icon{font-size:1.1rem;color:var(--lav);opacity:.5}
+@media(max-width:768px){.kwblocks{grid-template-columns:1fr}.kwarrow{padding:12px 0}}
+
+/* PROJECTS */
+.phero{background:linear-gradient(160deg,#f0eefd,#e8f4f0,#fdf0f2);padding:80px 40px;text-align:center}
+.pcards{max-width:1100px;margin:0 auto;padding:60px 40px;display:flex;flex-direction:column;gap:60px}
+.pcard{background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.05);display:grid;grid-template-columns:1fr 1.5fr}
+.pcard.alt{grid-template-columns:1.5fr 1fr}
+.pvis{display:flex;align-items:center;justify-content:center;padding:48px;flex-direction:column;gap:16px}
+.pvis .pn{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:400;line-height:1;text-align:center;letter-spacing:.02em}
+.pvis .pn span{display:block;font-size:.8rem;letter-spacing:.28em;margin-top:10px;font-family:'Noto Sans JP',sans-serif;font-weight:400;opacity:.75}
+.pbadge{padding:6px 18px;border-radius:20px;background:rgba(255,255,255,.55);font-size:.72rem;letter-spacing:.1em;backdrop-filter:blur(4px)}
+.pinfo{padding:48px;display:flex;flex-direction:column;justify-content:center}
+.pinfo h3{font-family:'Noto Serif JP',serif;font-size:1.6rem;font-weight:300;margin-bottom:20px;color:var(--ink)}
+.pinfo p{font-size:.9rem;line-height:2.3;color:var(--tl);margin-bottom:16px}
+.pfeats{list-style:none;margin-top:20px}
+.pfeats li{font-size:.85rem;padding:8px 0;border-bottom:1px solid rgba(184,175,214,.1);color:var(--tl);display:flex;align-items:center;gap:12px}
+.pfeats li::before{content:'—';color:var(--lav);flex-shrink:0}
+.ptag{display:inline-block;padding:4px 14px;border-radius:12px;font-size:.72rem;letter-spacing:.08em;margin-bottom:16px}
+
+/* NEWS */
+.nhero{background:linear-gradient(160deg,#fef8f0,#f0f4fe);padding:80px 40px;text-align:center}
+.nlist{max-width:800px;margin:0 auto;padding:60px 40px;display:flex;flex-direction:column}
+.ni{display:grid;grid-template-columns:120px 1fr;gap:32px;padding:32px 0;border-bottom:1px solid rgba(184,175,214,.15);cursor:default}
+.ndate{font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--tl);padding-top:4px;letter-spacing:.05em}
+.ncat{display:inline-block;padding:2px 10px;border-radius:10px;font-size:.65rem;letter-spacing:.1em;margin-bottom:8px}
+.ntitle{font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:400;line-height:1.7;color:var(--ink)}
+.nbody{font-size:.82rem;line-height:1.8;color:var(--tl);margin-top:6px}
+.nempty{text-align:center;padding:60px 0;font-family:'Noto Serif JP',serif;font-size:.95rem;color:var(--tl);line-height:2.4}
+
+/* CONTACT */
+.chero{background:var(--g1);padding:80px 40px;text-align:center;position:relative;overflow:hidden}
+.cgrd{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1000px;margin:0 auto;padding:60px 40px}
+.ccard{background:#fff;border-radius:20px;padding:40px;box-shadow:0 4px 24px rgba(0,0,0,.04);border:1px solid rgba(184,175,214,.12)}
+.ccard h3{font-family:'Noto Serif JP',serif;font-size:1.1rem;font-weight:400;margin-bottom:20px;color:var(--ink)}
+.ci{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid rgba(184,175,214,.1);font-size:.88rem;color:var(--tl)}
+.ci:last-child{border:none}
+.clbl{font-size:.72rem;letter-spacing:.12em;color:var(--lav);min-width:70px;padding-top:2px}
+.cval{line-height:1.7}
+.cval a{color:var(--lav);text-decoration:none}
+.cval a:hover{text-decoration:underline}
+.snsgrd{display:flex;flex-direction:column;gap:12px}
+.snsbtn{display:flex;align-items:center;gap:16px;padding:14px 20px;border-radius:12px;border:none;cursor:pointer;font-family:'Noto Sans JP',sans-serif;font-size:.85rem;font-weight:500;transition:all .2s;text-decoration:none;color:#fff}
+.snsbtn:hover{transform:translateX(4px)}
+.snsico{font-size:1.2rem;width:28px;text-align:center}
+.snsinfo{display:flex;flex-direction:column}
+.snsname{font-size:.9rem;font-weight:500}
+.snssub{font-size:.7rem;opacity:.7;margin-top:2px}
+.fwrp{max-width:700px;margin:0 auto 80px;padding:48px;background:#fff;border-radius:20px;text-align:center;box-shadow:0 4px 24px rgba(0,0,0,.04);border:1px solid rgba(184,175,214,.15)}
+.fwrp h3{font-family:'Noto Serif JP',serif;font-size:1.4rem;font-weight:300;margin-bottom:16px;color:var(--ink)}
+.fwrp p{font-size:.88rem;line-height:2;color:var(--tl);margin-bottom:28px}
+.finp{width:100%;max-width:500px;padding:12px 20px;border:1px solid rgba(184,175,214,.3);border-radius:12px;font-family:'Noto Sans JP',sans-serif;font-size:.88rem;background:var(--mist);color:var(--ink);outline:none;transition:border .2s;display:block;margin:0 auto 12px}
+.finp:focus{border-color:var(--lav)}
+textarea.finp{min-height:120px;resize:vertical}
+select.finp{width:100%;max-width:500px;padding:12px 20px;border:1px solid rgba(184,175,214,.3);border-radius:12px;font-family:'Noto Sans JP',sans-serif;font-size:.88rem;background:var(--mist);color:var(--ink);outline:none;transition:border .2s;display:block;margin:0 auto 12px;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23b8afd6' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+select.finp:focus{border-color:var(--lav)}
+
+/* FOOTER */
+footer{background:var(--ink);color:rgba(255,255,255,.5);padding:48px 40px;text-align:center}
+.fbrand{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:rgba(255,255,255,.8);margin-bottom:8px}
+.flinks{display:flex;justify-content:center;gap:24px;margin:16px 0;flex-wrap:wrap}
+.flinks button{background:none;border:none;cursor:pointer;font-family:'Noto Sans JP',sans-serif;font-size:.78rem;color:rgba(255,255,255,.4);transition:color .2s}
+.flinks button:hover{color:rgba(255,255,255,.8)}
+footer p{font-size:.78rem;line-height:2}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:0 16px}
+  .navlinks button{font-size:.7rem;padding:5px 9px}
+  .sgrid{grid-template-columns:1fr;gap:40px}
+  .pcard,.pcard.alt{grid-template-columns:1fr!important}
+  .cgrd{grid-template-columns:1fr}
+  .ni{grid-template-columns:1fr;gap:4px}
+  .sec{padding:60px 20px}
+  .pcards{padding:40px 20px}
+  .nlist{padding:40px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <button class="logo" onclick="go('home')">You&amp;i <span>結</span></button>
+  <div class="navlinks">
+    <button id="nb-home"    onclick="go('home')">ホーム</button>
+    <button id="nb-mission" onclick="go('mission')">ミッション</button>
+    <button id="nb-projects"onclick="go('projects')">プロジェクト</button>
+    <button id="nb-news"    onclick="go('news')">お知らせ</button>
+    <button id="nb-member"  onclick="go('member')">メンバー</button>
+    <button id="nb-contact" onclick="go('contact')">お問い合わせ</button>
+  </div>
+</nav>
+
+<!-- ========== HOME ========== -->
+<div id="pg-home" class="pg on">
+  <div class="hero">
+    <div class="orbs"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div class="orb o4"></div></div>
+    <div style="position:relative;z-index:1;max-width:760px">
+      <div class="hbrand">You&amp;i</div>
+      <div class="hkanji">結</div>
+      <p class="hmiss">あらゆる人の<em>理解者</em>となり<br>想いの<em>結び目</em>をつくる</p>
+      <button class="btn" onclick="go('mission')">私たちについて知る</button>
+    </div>
+    <div class="scroll">SCROLL</div>
+  </div>
+
+  <div class="sec">
+    <div class="lbl">Our Story</div>
+    <h2 class="stitle">人類は進歩と調和を<br>してきたのだろうか</h2>
+    <p class="sbody">1970年の大阪万博「人類の進歩と調和」から50年以上が過ぎた。宇宙進出、iPS細胞の樹立、生成AIの普及など、世界は確かに目覚ましい進化をした。しかし、今の世界はあまりに利己的だ。無関心、誹謗中傷、戦争——人と人との分断は深まるばかり。<br><br>人々が誰かのことを想い行動すれば、世の中はきっと良くなると信じている。You&amp;i（結）は、その想いを結び、未来を紡ぐ。</p>
+  </div>
+  <div class="divider"></div>
+  <div class="sec">
+    <div class="lbl">Projects</div>
+    <h2 class="stitle">3つの活動領域</h2>
+    <div class="cgrid">
+      <div class="card" onclick="go('projects')" style="--cc:linear-gradient(to right,#b8afd6,#9ecad8)">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,#b8afd6,#9ecad8)"></div>
+        <div class="ctag">You&amp;i Space</div>
+        <div class="ctitle">Space</div>
+        <p class="cdesc">支援者支援のプラットフォーム。誰かを支えたいという想いを持つ人たちが集まり、互いに支え合える場をつくります。</p>
+        <span class="carrow">詳しく見る →</span>
+      </div>
+      <div class="card" onclick="go('projects')" style="">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,#a8c4b0,#c8b87a)"></div>
+        <div class="ctag">You&amp;i Note</div>
+        <div class="ctitle">Note</div>
+        <p class="cdesc">災害の本質を直視し、問い、つなぐ。被災者と支援者をつなぐ情報プラットフォームとして機能します。</p>
+        <span class="carrow">詳しく見る →</span>
+      </div>
+      <div class="card" onclick="go('projects')" style="">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,#e8b4b8,#c8b87a)"></div>
+        <div class="ctag">You&amp;i Gallery</div>
+        <div class="ctitle">Gallery</div>
+        <p class="cdesc">想いが交差する現代の井戸端。様々な背景を持つ人々が出会い、語り合い、新たなつながりが生まれる空間。</p>
+        <span class="carrow">詳しく見る →</span>
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="sec">
+    <div class="lbl">News</div>
+    <h2 class="stitle">お知らせ</h2>
+    <div style="margin-top:8px">
+      <div style="display:grid;grid-template-columns:100px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid rgba(184,175,214,.15)">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--tl);letter-spacing:.05em;padding-top:3px">2026.04</div>
+        <div>
+          <span style="display:inline-block;padding:2px 10px;border-radius:10px;font-size:.65rem;letter-spacing:.1em;margin-bottom:8px;background:rgba(184,175,214,.2);color:var(--lav)">お知らせ</span>
+          <div style="font-family:'Noto Serif JP',serif;font-size:.95rem;font-weight:400;line-height:1.7;color:var(--ink)">You&amp;i（結）ウェブサイトを公開しました</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:100px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid rgba(184,175,214,.15)">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--tl);letter-spacing:.05em;padding-top:3px">2026.04</div>
+        <div>
+          <span style="display:inline-block;padding:2px 10px;border-radius:10px;font-size:.65rem;letter-spacing:.1em;margin-bottom:8px;background:rgba(184,175,214,.2);color:var(--lav)">お知らせ</span>
+          <div style="font-family:'Noto Serif JP',serif;font-size:.95rem;font-weight:400;line-height:1.7;color:var(--ink)">You&amp;i（結）プロジェクト始動</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:28px">
+      <button onclick="go('news')" style="background:none;border:1px solid rgba(184,175,214,.5);color:var(--lav);padding:10px 28px;border-radius:40px;font-family:'Noto Sans JP',sans-serif;font-size:.78rem;letter-spacing:.1em;cursor:pointer;transition:all .2s">お知らせ一覧を見る →</button>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="sec" style="text-align:center;padding-bottom:100px">
+    <div class="lbl">Join Us</div>
+    <h2 class="stitle" style="max-width:600px;margin:0 auto 24px">あなたの想いを、<br>一緒に結びましょう</h2>
+    <p class="sbody" style="margin:0 auto 36px;text-align:center;max-width:500px">You&amp;i（結）は、あなたの参加を待っています。<br>どんな形でも、つながることから始まります。</p>
+    <button class="btn" onclick="go('contact')">お問い合わせ・SNSをフォロー</button>
+  </div>
+  <footer>
+    <div class="fbrand">You&amp;i 結</div>
+    <div class="flinks">
+      <button onclick="go('home')">ホーム</button><button onclick="go('mission')">ミッション</button><button onclick="go('projects')">プロジェクト</button><button onclick="go('news')">お知らせ</button><button onclick="go('member')">メンバー</button><button onclick="go('contact')">お問い合わせ</button>
+    </div>
+    <p>成 仁脩（そん いんす）<br>&#169; 2025 You&amp;i 結. All rights reserved.</p>
+  </footer>
+</div>
+
+<!-- ========== MISSION ========== -->
+<div id="pg-mission" class="pg">
+  <div class="mhero">
+    <div>
+      <div class="lbl" style="text-align:center;margin-bottom:24px">Mission</div>
+      <div class="big">あらゆる人の<em>理解者</em>となり<br>想いの<strong>結び目</strong>をつくる</div>
+    </div>
+  </div>
+
+  <div class="sgrid">
+    <div class="stxt">
+      <h3>問いかけから始まった</h3>
+      <p>1970年の大阪万博、そのテーマは「人類の進歩と調和」だった。6400万人を超える人々が未来への希望を胸に集まったあの日から、半世紀以上が経過した。<br><br>宇宙への進出、iPS細胞による再生医療の可能性、生成AIの急速な普及——テクノロジーの観点から見れば、世界は確かに驚くべき進化を遂げた。<br><br>しかし——人類は本当に「進歩と調和」を達成できたのだろうか？</p>
+    </div>
+    <div class="svis">
+      <div class="vnum">1970</div>
+      <div class="vtxt"><strong>人類の進歩と調和</strong>大阪万博 テーマ</div>
+    </div>
+  </div>
+
+  <div class="kwsec">
+    <div class="lbl" style="text-align:center">今の世界</div>
+    <h2 class="stitle" style="text-align:center;max-width:600px;margin:0 auto">世界はあまりに利己的だ</h2>
+    <div class="kwblocks">
+      <div class="kwblock">
+        <span class="kwlabel kwlabel-n">今の世界</span>
+        <div class="kwtags">
+          <span class="kw kwn">無関心</span><span class="kw kwn">嫉妬</span><span class="kw kwn">損得勘定</span><span class="kw kwn">誹謗中傷</span><span class="kw kwn">絶望</span><span class="kw kwn">ハラスメント</span><span class="kw kwn">帰属意識の欠如</span><span class="kw kwn">利己主義</span><span class="kw kwn">差別</span><span class="kw kwn">戦争</span>
+        </div>
+      </div>
+      <div class="kwarrow"><div class="kwarrow-inner"><span class="kwarrow-icon">&#8594;</span></div></div>
+      <div class="kwblock">
+        <span class="kwlabel kwlabel-p">目指す世界</span>
+        <div class="kwtags">
+          <span class="kw kwp">理解</span><span class="kw kwp">つながり</span><span class="kw kwp">共感</span><span class="kw kwp">協力</span><span class="kw kwp">結び</span><span class="kw kwp">信頼</span><span class="kw kwp">多様性</span><span class="kw kwp">対話</span><span class="kw kwp">平和</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sgrid" style="direction:rtl">
+    <div class="stxt" style="direction:ltr">
+      <h3>2025年、新たなテーマ</h3>
+      <p>2025年の大阪・関西万博、テーマは「いのち輝く未来社会のデザイン」。<br><br>このテーマは単なる希望ではなく、私たちへの問いかけでもある。いのちが輝く社会とはどんな社会か。誰かのことを想い、行動することで、世の中はきっと良くなる——そう信じている。<br><br>You&amp;i（結）は、その信念を形にするために生まれた。</p>
+    </div>
+    <div class="svis" style="direction:ltr">
+      <div class="vnum">2025</div>
+      <div class="vtxt"><strong>いのち輝く未来社会のデザイン</strong>大阪・関西万博 テーマ</div>
+    </div>
+  </div>
+
+  <div style="background:linear-gradient(135deg,rgba(184,175,214,.08),rgba(158,202,216,.08));padding:80px 40px;text-align:center">
+    <div class="lbl" style="text-align:center">What We Do</div>
+    <h2 class="stitle" style="text-align:center;max-width:700px;margin:0 auto 24px">You&amp;i（結）は、これからの未来を創り、紡ぐ</h2>
+    <p class="sbody" style="text-align:center;margin:0 auto 40px;max-width:600px">「結」という漢字が示すように、人と人をつなぎ、想いを束ね、新たな未来の布を織り上げていく。<br>あらゆる人の理解者となり、その想いの結び目をつくることが、私たちのミッションです。</p>
+    <button class="btn" onclick="go('projects')">プロジェクトを見る</button>
+  </div>
+  <footer>
+    <div class="fbrand">You&amp;i 結</div>
+    <div class="flinks">
+      <button onclick="go('home')">ホーム</button><button onclick="go('mission')">ミッション</button><button onclick="go('projects')">プロジェクト</button><button onclick="go('news')">お知らせ</button><button onclick="go('member')">メンバー</button><button onclick="go('contact')">お問い合わせ</button>
+    </div>
+    <p>成 仁脩（そん いんす）<br>&#169; 2025 You&amp;i 結. All rights reserved.</p>
+  </footer>
+</div>
+
+<!-- ========== PROJECTS ========== -->
+<div id="pg-projects" class="pg">
+  <div class="phero">
+    <div class="lbl" style="text-align:center;margin-bottom:16px">Projects</div>
+    <h1 style="font-family:'Noto Serif JP',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:300;color:var(--ink);line-height:1.6;max-width:600px;margin:0 auto 16px">3つのプロジェクトで<br>想いを結ぶ</h1>
+    <p style="font-size:.9rem;color:var(--tl);line-height:2;max-width:500px;margin:0 auto">You&amp;i（結）の活動は、単発のイベントではなく、<br>持続的なつながりを生むプラットフォームとして展開されます。</p>
+  </div>
+  <div class="pcards">
+
+    <!-- Space -->
+    <div class="pcard">
+      <div class="pvis" style="background:linear-gradient(145deg,#e8e4f8,#d4e8f4)">
+        <div class="pn" style="color:#6b5fa8">Space<span style="color:#8b80c0">You&amp;i Space</span></div>
+        <div class="pbadge" style="color:#6b5fa8">支援者支援</div>
+      </div>
+      <div class="pinfo">
+        <span class="ptag" style="background:rgba(184,175,214,.15);color:var(--lav)">You&amp;i Space</span>
+        <h3>支援者支援のプラットフォーム</h3>
+        <p>誰かを支えたいという想いを持っているのに、どうすればいいかわからない——そんな人たちのための場所です。支援者自身が孤立せず、互いに支え合い、より良い支援を届けられるようにするためのコミュニティプラットフォームです。</p>
+        <p>支援する側もまた、誰かに支えられる必要があります。You&amp;i Spaceは、その循環を生み出します。</p>
+        <ul class="pfeats">
+          <li>支援者同士のコミュニティ形成</li>
+          <li>ノウハウ・リソースの共有</li>
+          <li>専門家とのマッチング支援</li>
+          <li>支援者のメンタルヘルスケア</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Note -->
+    <div class="pcard alt">
+      <div class="pinfo">
+        <span class="ptag" style="background:rgba(168,196,176,.2);color:#5a9a6a">You&amp;i Note</span>
+        <h3>災害の本質を直視し、問い、つなぐ</h3>
+        <p>災害は「終わった出来事」ではありません。被災した人々の記憶、継続する生活の困難、復興の過程——それらを可視化し、社会と被災地をつなぎ続けます。</p>
+        <p>当事者の声を届け、支援の糸口を探し、問い続けることで、真の復興に向けた橋渡しをするメディア・プラットフォームです。</p>
+        <ul class="pfeats">
+          <li>被災者・支援者の声を届けるメディア</li>
+          <li>継続的な情報発信と記録</li>
+          <li>支援ニーズと支援者のマッチング</li>
+          <li>災害についての問いを深める場</li>
+        </ul>
+      </div>
+      <div class="pvis" style="background:linear-gradient(145deg,#e4f4ec,#f0f4e4)">
+        <div class="pn" style="color:#3d7a55">Note<span style="color:#5a9a6a">You&amp;i Note</span></div>
+        <div class="pbadge" style="color:#3d7a55">災害・復興</div>
+      </div>
+    </div>
+
+    <!-- Gallery -->
+    <div class="pcard">
+      <div class="pvis" style="background:linear-gradient(145deg,#f8e8e8,#f4e8f4)">
+        <div class="pn" style="color:#b05868">Gallery<span style="color:#c07880">You&amp;i Gallery</span></div>
+        <div class="pbadge" style="color:#b05868">出会い・対話</div>
+      </div>
+      <div class="pinfo">
+        <span class="ptag" style="background:rgba(232,180,184,.2);color:#c07880">You&amp;i Gallery</span>
+        <h3>想いが交差する現代の井戸端</h3>
+        <p>かつて井戸端会議が地域のつながりを生んだように、You&amp;i Galleryは現代の「井戸端」として機能します。異なるバックグラウンドを持つ人々が出会い、語り合い、それぞれの想いが交差する場所。</p>
+        <p>偶然の出会いが、人生を変えることがある。そのような豊かな出会いを意図的に生み出す、文化的・社会的なプラットフォームです。</p>
+        <ul class="pfeats">
+          <li>多様な人々が集うイベント・展示</li>
+          <li>対話を促す場づくり</li>
+          <li>アート・文化を通じた相互理解</li>
+          <li>オンライン・オフラインの融合</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  <div style="background:#fff;padding:60px 40px;text-align:center;border-top:1px solid rgba(184,175,214,.1)">
+    <p style="font-family:'Noto Serif JP',serif;font-size:1rem;line-height:2.4;color:var(--tl);max-width:600px;margin:0 auto 32px">3つのプロジェクトは、それぞれ独立しながらも、<br>「You&amp;i（結）」という想いで連動しています。</p>
+    <button class="btn" onclick="go('contact')">参加・協力について問い合わせる</button>
+  </div>
+  <footer>
+    <div class="fbrand">You&amp;i 結</div>
+    <div class="flinks">
+      <button onclick="go('home')">ホーム</button><button onclick="go('mission')">ミッション</button><button onclick="go('projects')">プロジェクト</button><button onclick="go('news')">お知らせ</button><button onclick="go('member')">メンバー</button><button onclick="go('contact')">お問い合わせ</button>
+    </div>
+    <p>成 仁脩（そん いんす）<br>&#169; 2025 You&amp;i 結. All rights reserved.</p>
+  </footer>
+</div>
+
+<!-- ========== NEWS ========== -->
+<div id="pg-news" class="pg">
+  <div class="nhero">
+    <div class="lbl" style="text-align:center;margin-bottom:16px">News</div>
+    <h1 style="font-family:'Noto Serif JP',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;color:var(--ink)">お知らせ</h1>
+    <p style="font-size:.88rem;color:var(--tl);margin-top:12px">You&amp;i（結）からの最新情報をお届けします</p>
+  </div>
+  <div class="nlist">
+    <div class="ni">
+      <div class="ndate">2026.04</div>
+      <div><span class="ncat" style="background:rgba(184,175,214,.2);color:var(--lav)">お知らせ</span>
+      <div class="ntitle">You&amp;i（結）ウェブサイトを公開しました</div>
+      <div class="nbody">You&amp;i（結）の公式ウェブサイトを公開しました。今後も随時情報を更新してまいります。</div></div>
+    </div>
+    <div class="ni">
+      <div class="ndate">2026.04</div>
+      <div><span class="ncat" style="background:rgba(184,175,214,.2);color:var(--lav)">お知らせ</span>
+      <div class="ntitle">You&amp;i（結）プロジェクト始動</div>
+      <div class="nbody">成 仁脩（そん いんす）を中心に、You&amp;i（結）プロジェクトが正式に始動しました。</div></div>
+    </div>
+    <div class="nempty">最新情報はSNSでも発信しています。<br>フォローしてお待ちください。<br><br>
+      <button class="btn" onclick="go('contact')" style="font-size:.8rem;padding:10px 28px">SNSをフォローする</button>
+    </div>
+  </div>
+  <footer>
+    <div class="fbrand">You&amp;i 結</div>
+    <div class="flinks">
+      <button onclick="go('home')">ホーム</button><button onclick="go('mission')">ミッション</button><button onclick="go('projects')">プロジェクト</button><button onclick="go('news')">お知らせ</button><button onclick="go('member')">メンバー</button><button onclick="go('contact')">お問い合わせ</button>
+    </div>
+    <p>成 仁脩（そん いんす）<br>&#169; 2025 You&amp;i 結. All rights reserved.</p>
+  </footer>
+</div>
+
+
+<!-- ========== MEMBER ========== -->
+<div id="pg-member" class="pg">
+  <div style="background:linear-gradient(160deg,#f0eefd,#fdf0f2,#f0f4fe);padding:80px 40px;text-align:center">
+    <div class="lbl" style="text-align:center;margin-bottom:16px">Member</div>
+    <h1 style="font-family:'Noto Serif JP',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;color:var(--ink)">メンバー</h1>
+    <p style="font-size:.88rem;color:var(--tl);margin-top:12px">You&amp;i（結）を共に紡ぐ人たち</p>
+  </div>
+
+  <div style="max-width:900px;margin:0 auto;padding:60px 40px">
+
+    <!-- Founder -->
+    <div style="margin-bottom:24px">
+      <div style="font-size:.65rem;letter-spacing:.3em;color:var(--lav);text-transform:uppercase;margin-bottom:32px;font-weight:500;text-align:center">Founder</div>
+      <div style="display:flex;justify-content:center">
+        <div style="background:#fff;border-radius:24px;padding:48px 56px;box-shadow:0 4px 32px rgba(0,0,0,.05);border:1px solid rgba(184,175,214,.15);text-align:center;max-width:480px;width:100%">
+          <div style="width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,#e8e4f8,#ddf0e8);margin:0 auto 24px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--lav)">成</div>
+          <div style="font-family:'Noto Serif JP',serif;font-size:1.4rem;font-weight:400;color:var(--ink);margin-bottom:4px">成 仁脩</div>
+          <div style="font-size:.78rem;letter-spacing:.15em;color:var(--lav);margin-bottom:20px">そん いんす</div>
+          <div style="height:1px;background:linear-gradient(to right,transparent,rgba(184,175,214,.3),transparent);margin-bottom:20px"></div>
+          <p style="font-size:.88rem;line-height:2.2;color:var(--tl);margin-bottom:24px">You&amp;i（結）発起人。大阪医科薬科大学医学部在籍。人々が誰かのことを想い行動する社会を目指し、プロジェクトを立ち上げる。</p>
+          <a href="https://my.prairie.cards/u/23.insu.s" target="_blank" rel="noopener" style="display:inline-block;padding:10px 28px;border-radius:40px;border:1px solid rgba(184,175,214,.5);font-size:.78rem;letter-spacing:.1em;color:var(--lav);text-decoration:none;transition:all .2s">プロフィールを見る →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div style="height:1px;background:linear-gradient(to right,transparent,rgba(184,175,214,.2),transparent);margin:48px 0"></div>
+
+    <!-- Members placeholder -->
+    <div>
+      <div style="font-size:.65rem;letter-spacing:.3em;color:var(--lav);text-transform:uppercase;margin-bottom:32px;font-weight:500;text-align:center">Members</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px">
+
+        <!-- Placeholder card style for future members -->
+        <div style="background:#fff;border-radius:20px;padding:36px 32px;box-shadow:0 4px 24px rgba(0,0,0,.04);border:1px solid rgba(184,175,214,.12);text-align:center;opacity:.5">
+          <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#f0eefd,#e8f0f8);margin:0 auto 16px;border:2px dashed rgba(184,175,214,.4)"></div>
+          <div style="font-family:'Noto Serif JP',serif;font-size:1rem;color:var(--tl);margin-bottom:6px">メンバー募集中</div>
+          <div style="font-size:.75rem;color:var(--tl);line-height:1.9">あなたもYou&amp;i（結）の<br>一員になりませんか</div>
+        </div>
+
+        <div style="background:#fff;border-radius:20px;padding:36px 32px;box-shadow:0 4px 24px rgba(0,0,0,.04);border:1px solid rgba(184,175,214,.12);text-align:center;opacity:.5">
+          <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#f0f8f0,#f8f4e8);margin:0 auto 16px;border:2px dashed rgba(168,196,176,.4)"></div>
+          <div style="font-family:'Noto Serif JP',serif;font-size:1rem;color:var(--tl);margin-bottom:6px">メンバー募集中</div>
+          <div style="font-size:.75rem;color:var(--tl);line-height:1.9">想いを持つ仲間を<br>お待ちしています</div>
+        </div>
+
+        <div style="background:#fff;border-radius:20px;padding:36px 32px;box-shadow:0 4px 24px rgba(0,0,0,.04);border:1px solid rgba(184,175,214,.12);text-align:center;opacity:.5">
+          <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#f8eeee,#f8eef8);margin:0 auto 16px;border:2px dashed rgba(232,180,184,.4)"></div>
+          <div style="font-family:'Noto Serif JP',serif;font-size:1rem;color:var(--tl);margin-bottom:6px">メンバー募集中</div>
+          <div style="font-size:.75rem;color:var(--tl);line-height:1.9">一緒に未来を<br>創りましょう</div>
+        </div>
+
+      </div>
+      <div style="text-align:center;margin-top:48px">
+        <button class="btn" onclick="go('contact')" style="font-size:.85rem">参加を希望する</button>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="fbrand">You&amp;i 結</div>
+    <div class="flinks">
+      <button onclick="go('home')">ホーム</button><button onclick="go('mission')">ミッション</button><button onclick="go('projects')">プロジェクト</button><button onclick="go('news')">お知らせ</button><button onclick="go('member')">メンバー</button><button onclick="go('contact')">お問い合わせ</button>
+    </div>
+    <p>成 仁脩（そん いんす）<br>&#169; 2025 You&amp;i 結. All rights reserved.</p>
+  </footer>
+</div>
+
+<!-- ========== CONTACT ========== -->
+<div id="pg-contact" class="pg">
+  <div class="chero">
+    <div class="orbs"><div class="orb o1" style="opacity:.08"></div><div class="orb o2" style="opacity:.08"></div></div>
+    <div style="position:relative;z-index:1">
+      <div class="lbl" style="text-align:center;margin-bottom:16px">Contact &amp; SNS</div>
+      <h1 style="font-family:'Noto Serif JP',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;color:var(--ink);line-height:1.6">つながりましょう</h1>
+      <p style="font-size:.9rem;color:var(--tl);margin-top:16px;line-height:2">お気軽にご連絡ください。<br>SNSでの最新情報もぜひフォローをお願いします。</p>
+    </div>
+  </div>
+
+  <div style="max-width:500px;margin:0 auto;padding:0 40px 0">
+    <div class="ccard">
+      <h3>SNS・メディア</h3>
+      <div class="snsgrd">
+        <a href="#" class="snsbtn" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">
+          <span class="snsico">&#120143;</span>
+          <span class="snsinfo"><span class="snsname">X (Twitter)</span><span class="snssub">@youi_musubime</span></span>
+        </a>
+        <a href="https://www.instagram.com/you.and.i_yui?igsh=MTk4M3EzY3FhcXB0NA%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener" class="snsbtn" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)">
+          <span class="snsico">&#128247;</span>
+          <span class="snsinfo"><span class="snsname">Instagram</span><span class="snssub">@you.and.i_yui</span></span>
+        </a>
+        <a href="#" class="snsbtn" style="background:linear-gradient(135deg,#41c9b4,#3ab5a2)">
+          <span class="snsico">&#9998;</span>
+          <span class="snsinfo"><span class="snsname">note</span><span class="snssub">活動レポート・コラム</span></span>
+        </a>
+        <a href="#" class="snsbtn" style="background:linear-gradient(135deg,#00b900,#00a000)">
+          <span class="snsico">&#128172;</span>
+          <span class="snsinfo"><span class="snsname">LINE公式アカウント</span><span class="snssub">最新情報をお届け</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="fwrp">
+    <h3>お問い合わせフォーム</h3>
+    <p>プロジェクトへの参加・協力・取材・講演依頼など、<br>お気軽にご連絡ください。</p>
+    <form id="contact-form" action="https://formspree.io/f/xbdpzlvy" method="POST" style="display:flex;flex-direction:column;align-items:center">
+      <input type="text" name="name" class="finp" placeholder="お名前" required>
+      <input type="email" name="email" class="finp" placeholder="メールアドレス" required>
+      <select name="subject" class="finp" required>
+        <option value="" disabled selected style="color:#aaa">件名を選択してください</option>
+        <option value="活動についてのお問い合わせ">活動についてのお問い合わせ</option>
+        <option value="プロジェクト参加希望">プロジェクト参加希望</option>
+        <option value="取材に関して">取材に関して</option>
+        <option value="講演・登壇依頼">講演・登壇依頼</option>
+        <option value="協力・連携について">協力・連携について</option>
+        <option value="その他">その他</option>
+      </select>
+      <textarea name="message" class="finp" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+      <input type="hidden" name="_subject" value="You&amp;i（結）へのお問い合わせ">
+      <input type="hidden" name="_language" value="ja">
+      <button type="submit" class="btn">送信する</button>
+    </form>
+    <div id="form-thanks" style="display:none;margin-top:24px;font-family:'Noto Serif JP',serif;font-size:1rem;color:var(--lav);line-height:2">
+      ありがとうございます。<br>メッセージを受け取りました。<br>折り返しご連絡いたします。
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="fbrand">You&amp;i 結</div>
+    <div class="flinks">
+      <button onclick="go('home')">ホーム</button><button onclick="go('mission')">ミッション</button><button onclick="go('projects')">プロジェクト</button><button onclick="go('news')">お知らせ</button><button onclick="go('member')">メンバー</button><button onclick="go('contact')">お問い合わせ</button>
+    </div>
+    <p>成 仁脩（そん いんす）<br>&#169; 2025 You&amp;i 結. All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var form = document.getElementById('contact-form');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var data = new FormData(form);
+    fetch(form.action, {method:'POST', body:data, headers:{'Accept':'application/json'}})
+      .then(function(r){
+        if(r.ok){
+          form.style.display='none';
+          document.getElementById('form-thanks').style.display='block';
+        } else {
+          alert('送信に失敗しました。メールで直接ご連絡ください。');
+        }
+      })
+      .catch(function(){ alert('通信エラーが発生しました。メールで直接ご連絡ください。'); });
+  });
+});
+</script>
+<script>
+(function(){
+  // Render email via JS so no server-side tool can mangle it
+  var e = [121,111,117,97,110,100,105,46,121,117,105,121,117,105,64,103,109,97,105,108,46,99,111,109].map(function(c){return String.fromCharCode(c);}).join('');
+  var el = document.getElementById('em-link');
+  if(el){ el.href = 'mailto:' + e; el.textContent = e; }
+})();
+
+function go(name){
+  var pages = document.querySelectorAll('.pg');
+  var btns  = document.querySelectorAll('.navlinks button, .flinks button');
+  for(var i=0;i<pages.length;i++) pages[i].classList.remove('on');
+  for(var i=0;i<btns.length;i++)  btns[i].classList.remove('act');
+  document.getElementById('pg-'+name).classList.add('on');
+  var nb = document.getElementById('nb-'+name);
+  if(nb) nb.classList.add('act');
+  window.scrollTo(0,0);
+}
+
+document.getElementById('nb-home').classList.add('act');
+</script>
+</body>
+</html>
