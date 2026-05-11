@@ -4,6 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>You&i 結 | あらゆる人の理解者となり、想いの結び目をつくる</title>
+<meta name="description" content="You&i（結）は、あらゆる人の理解者となり、想いの結び目をつくるソーシャルプロジェクトです。互助プラットフォーム「You&i Space」とオフライン表現スペース「You&i Gallery」を展開しています。">
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ins2323.github.io/youi-website/">
+<meta property="og:title" content="You&i 結 | あらゆる人の理解者となり、想いの結び目をつくる">
+<meta property="og:description" content="You&i（結）は、あらゆる人の理解者となり、想いの結び目をつくるソーシャルプロジェクトです。互助プラットフォーム「You&i Space」とオフライン表現スペース「You&i Gallery」を展開しています。">
+<meta property="og:image" content="https://ins2323.github.io/youi-website/ogp.png">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="You&i 結">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="You&i 結 | あらゆる人の理解者となり、想いの結び目をつくる">
+<meta name="twitter:description" content="You&i（結）は、あらゆる人の理解者となり、想いの結び目をつくるソーシャルプロジェクトです。">
+<meta name="twitter:image" content="https://ins2323.github.io/youi-website/ogp.png">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XLYLHT1ENR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XLYLHT1ENR');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
@@ -521,21 +543,9 @@ footer p{font-size:.78rem;line-height:2}
     <div class="ccard">
       <h3>SNS・メディア</h3>
       <div class="snsgrd">
-        <a href="#" class="snsbtn" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">
-          <span class="snsico">&#120143;</span>
-          <span class="snsinfo"><span class="snsname">X (Twitter)</span><span class="snssub">@youi_musubime</span></span>
-        </a>
         <a href="https://www.instagram.com/you.and.i_yui?igsh=MTk4M3EzY3FhcXB0NA%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener" class="snsbtn" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)">
           <span class="snsico">&#128247;</span>
           <span class="snsinfo"><span class="snsname">Instagram</span><span class="snssub">@you.and.i_yui</span></span>
-        </a>
-        <a href="#" class="snsbtn" style="background:linear-gradient(135deg,#41c9b4,#3ab5a2)">
-          <span class="snsico">&#9998;</span>
-          <span class="snsinfo"><span class="snsname">note</span><span class="snssub">活動レポート・コラム</span></span>
-        </a>
-        <a href="#" class="snsbtn" style="background:linear-gradient(135deg,#00b900,#00a000)">
-          <span class="snsico">&#128172;</span>
-          <span class="snsinfo"><span class="snsname">LINE公式アカウント</span><span class="snssub">最新情報をお届け</span></span>
         </a>
       </div>
     </div>
@@ -612,10 +622,17 @@ function go(name){
   document.getElementById('pg-'+name).classList.add('on');
   var nb = document.getElementById('nb-'+name);
   if(nb) nb.classList.add('act');
+  history.replaceState(null,'','#'+name);
   window.scrollTo(0,0);
 }
 
-document.getElementById('nb-home').classList.add('act');
+// ハッシュから初期ページを決定
+(function(){
+  var hash = window.location.hash.replace('#','');
+  var valid = ['home','mission','projects','news','member','contact'];
+  if(hash && valid.indexOf(hash) !== -1){ go(hash); }
+  else{ document.getElementById('nb-home').classList.add('act'); }
+})();
 </script>
 </body>
 </html>
