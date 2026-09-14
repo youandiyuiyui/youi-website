@@ -118,6 +118,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(254,254,254,
 .kwem-n{color:#8a7d7d;font-weight:500;background:linear-gradient(180deg,transparent 62%,#eae5e5 62%,#eae5e5 92%,transparent 92%);padding:0 4px}
 .kwem-r{color:#a14e5c;font-weight:600;background:linear-gradient(180deg,transparent 62%,rgba(232,180,184,.55) 62%,rgba(232,180,184,.55) 92%,transparent 92%);padding:0 4px}
 .kwem-l{color:#4a3a78;font-weight:600;background:linear-gradient(180deg,transparent 62%,rgba(184,175,214,.55) 62%,rgba(184,175,214,.55) 92%,transparent 92%);padding:0 4px}
+.kwem-n,.kwem-r,.kwem-l{display:inline-block}
 .kwbridge{max-width:620px;margin:64px auto}
 .kwbridge p{font-size:.95rem;line-height:2.3;color:#4a4855;text-align:center;word-break:auto-phrase}
 .kwlink{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:40px}
@@ -189,8 +190,12 @@ footer p{font-size:.78rem;line-height:2}
 
 /* RESPONSIVE */
 @media(max-width:768px){
-  nav{padding:0 16px}
-  .navlinks button{font-size:.7rem;padding:5px 9px}
+  nav{padding:0 10px;gap:6px}
+  .logo{flex:0 0 auto;font-size:1.2rem;gap:6px}
+  .logo span{font-size:.92rem}
+  .navlinks{flex:1 1 auto;min-width:0;gap:0;justify-content:flex-start;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent 100%);-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 22px),transparent 100%)}
+  .navlinks::-webkit-scrollbar{display:none}
+  .navlinks button{flex:0 0 auto;white-space:nowrap;font-size:.68rem;padding:6px 8px;letter-spacing:.02em}
   .sgrid{grid-template-columns:1fr;gap:40px}
   .pcard,.pcard.alt{grid-template-columns:1fr!important}
   .cgrd{grid-template-columns:1fr}
@@ -198,6 +203,46 @@ footer p{font-size:.78rem;line-height:2}
   .sec{padding:60px 20px}
   .pcards{padding:40px 20px}
   .nlist{padding:40px 20px}
+}
+
+/* ---- READABILITY KIT (2026-09-14) ---- */
+p.lead{font-family:'Noto Serif JP',serif;font-size:clamp(1.02rem,2.1vw,1.22rem);font-weight:400;line-height:2;color:var(--ink);margin:0 0 4px}
+p.lead em{font-style:normal;color:#5d4d8c;font-weight:600}
+.kpts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:26px 0 0}
+.kpt{background:rgba(255,255,255,.7);border:1px solid rgba(184,175,214,.22);border-radius:16px;padding:20px 22px;text-align:left}
+.kpt .kn{display:block;font-family:'Cormorant Garamond',serif;font-size:.9rem;letter-spacing:.18em;color:var(--lav);margin-bottom:10px}
+.kpt h4{font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:600;line-height:1.75;color:var(--ink);margin-bottom:10px;letter-spacing:.01em}
+.kpt p{font-size:.82rem;line-height:1.95;color:var(--tl);margin:0}
+.kpts.rows{grid-template-columns:1fr;gap:10px}
+.kpts.rows .kpt{display:flex;align-items:flex-start;gap:18px;padding:18px 22px}
+.kpts.rows .kn{margin:0;padding-top:3px;flex:0 0 auto}
+.kpts.rows .kbody{flex:1 1 auto;min-width:0}
+.kpts.rows h4{margin-bottom:6px}
+.kpts.rows p{font-size:.84rem}
+details.more{margin-top:26px;border-top:1px solid rgba(184,175,214,.25)}
+details.more>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:10px;font-size:.8rem;letter-spacing:.12em;color:var(--lav);padding:16px 2px;-webkit-user-select:none;user-select:none;transition:color .2s}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::after{content:'\FF0B';font-size:.85rem;opacity:.75}
+details.more[open]>summary::after{content:'\FF0D'}
+details.more>summary:hover{color:#5d4d8c}
+details.more .mbody{animation:fi .35s ease;padding-bottom:10px}
+.mbody h4{font-size:.7rem;letter-spacing:.24em;color:var(--lav);font-weight:500;margin:26px 0 4px}
+.flow{display:flex;align-items:stretch;justify-content:center;gap:12px;flex-wrap:wrap;max-width:820px;margin:34px auto 0}
+.fstep{flex:1 1 190px;background:rgba(255,255,255,.72);border:1px solid rgba(184,175,214,.25);border-radius:18px;padding:24px 18px;text-align:center}
+.fstep .fk{display:block;font-family:'Noto Serif JP',serif;font-size:1.22rem;font-weight:500;color:#5d4d8c;letter-spacing:.08em;margin-bottom:4px}
+.fstep .fw{display:block;font-family:'Cormorant Garamond',serif;font-size:.78rem;letter-spacing:.16em;color:var(--lav);margin-bottom:12px}
+.fstep p{font-size:.8rem;line-height:1.95;color:var(--tl);margin:0;text-align:left}
+.farr{display:flex;align-items:center;color:var(--lav);font-size:1.05rem;opacity:.65}
+@media(max-width:768px){
+  .kpts{grid-template-columns:1fr}
+  .kwbridge p{text-align:left!important}
+  .kwbridge{margin:40px auto}
+  .kwsec{padding:60px 20px}
+  .kpts.rows .kpt{flex-direction:column;gap:6px}
+  .kpts.rows .kn{padding-top:0}
+  .farr{width:100%;justify-content:center;transform:rotate(90deg);margin:-2px 0}
+  .pinfo{padding:32px 24px}
+  .flow{gap:8px}
 }
 </style>
 </head>
@@ -242,7 +287,7 @@ footer p{font-size:.78rem;line-height:2}
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,#b8afd6,#9ecad8)"></div>
         <div class="ctag">You&amp;i Space</div>
         <div class="ctitle">Space</div>
-        <p class="cdesc">支える側こそ、最も脆弱なことがある。役割を循環させ、信頼スコアと＆ポイントで善意を“循環する資本”に変える——支援を善意で終わらせないプラットフォーム。</p>
+        <p class="cdesc">支える人もまた、支えを必要としている。役割が循環する、支援者支援のプラットフォーム。</p>
         <span class="carrow">詳しく見る →</span>
       </div>
 
@@ -250,7 +295,7 @@ footer p{font-size:.78rem;line-height:2}
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,#e8b4b8,#c8b87a)"></div>
         <div class="ctag">You&amp;i Gallery</div>
         <div class="ctitle">Gallery</div>
-        <p class="cdesc">私たちは“井戸端”を失った。You&amp;i（結）のオフラインの顔として、人と人が直接出会い、想いを交わせる場をつくります。具体的な将来像は未定。「出会いと交流の場」を地域とともに育てます。</p>
+        <p class="cdesc">失われた“井戸端”を、現代に。人と人が直接出会い、想いを交わせるオフラインの場。</p>
         <span class="carrow">詳しく見る →</span>
       </div>
 
@@ -258,7 +303,7 @@ footer p{font-size:.78rem;line-height:2}
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,#a8c4b0,#7fb6a4)"></div>
         <div class="ctag">You&amp;i Note</div>
         <div class="ctitle">Note</div>
-        <p class="cdesc">理解の手前には「知る」がある。物事の本質に触れる、旅と記録。現場に立つスタディツアーと、一次資料に当たって確かめる記録で、人が立っている物事そのものを知りにいきます。</p>
+        <p class="cdesc">「理解」の手前に、「知る」を。現場に立つ旅と、一次資料に当たる記録。</p>
         <span class="carrow">詳しく見る →</span>
       </div>
     </div>
@@ -314,10 +359,63 @@ footer p{font-size:.78rem;line-height:2}
     </div>
   </div>
 
+
+  <!-- ========== 第1段：わかってほしかった、という記憶 ========== -->
+  <div style="background:linear-gradient(135deg,rgba(184,175,214,.12),rgba(158,202,216,.1),rgba(232,180,184,.08));padding:90px 40px;text-align:center;position:relative;overflow:hidden">
+    <div style="position:absolute;top:-50px;left:-50px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(184,175,214,.18),transparent 70%);pointer-events:none"></div>
+    <div style="position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,180,184,.16),transparent 70%);pointer-events:none"></div>
+    <div style="position:relative;z-index:1;max-width:940px;margin:0 auto">
+      <div class="lbl" style="text-align:center;color:#5d4d8c">理念の核</div>
+      <h2 class="stitle" style="text-align:center;max-width:720px;margin:0 auto;font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1.7">助けるとは、<br>理解者になること。</h2>
+      <div class="kpts" style="max-width:900px;margin:44px auto 0">
+        <div class="kpt"><span class="kn">01</span><h4>変えることでは、ない</h4><p>相手を変えることでも、正しい方向へ導くことでもありません。</p></div>
+        <div class="kpt"><span class="kn">02</span><h4>今いる場所を、認める</h4><p>その人が今いる場所をいとおしく思いながら認め、そっと背中を押すこと。</p></div>
+        <div class="kpt"><span class="kn">03</span><h4>変わることでなくていい</h4><p>乗り越えることは、変わることでなくていい。踏み出すのは、いつでも本人自身です。</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 第2段：けれど、気づかれないまま過ぎていく ========== -->
+  <div class="kwsec">
+    <div class="lbl" style="text-align:center">今の世界</div>
+    <h2 class="stitle" style="text-align:center;max-width:680px;margin:0 auto">けれど、<span class="kwem-n">気づかれないまま</span>過ぎていく</h2>
+    <div class="kwbridge" style="margin-top:40px">
+      <p>隣の部屋に誰が住んでいるか、知らないまま何年も過ぎる。名前は知らない。困っていても、たぶん気づかない。</p>
+    </div>
+    <div class="kwtags">
+      <span class="kw kwn">無関心</span><span class="kw kwn">損得勘定</span><span class="kw kwn">名前を伏せたままの言葉</span>
+    </div>
+    <div class="kwbridge">
+      <p>今の世の中は、確かに利己的である——そう書いている私たちも、その中にいます。<br><br>誰かの心根が冷えたから、ではないと思います。人がお互いをよく知っていた頃には、詮索も、同調も、逃げ場のなさもありました。理由があって、私たちはあの距離を手放した。手放したものの中に、あたたかさまで混じっていた。</p>
+    </div>
+  </div>
+
+  <!-- ========== 第3段：知らなくていい。気づけたら、それでいい ========== -->
+  <div style="padding:80px 40px;text-align:center">
+    <div class="lbl" style="text-align:center">目指す世界</div>
+    <h2 class="stitle" style="text-align:center;max-width:680px;margin:0 auto">知らなくていい。<br><span class="kwem-l">気づけたら</span>、それでいい</h2>
+    <div class="kwbridge" style="margin-top:40px">
+      <p>お互いのことを少しでも気づけて、意識できたら、世の中はもっと良くなる。あなたのすべてを、誰かが知る必要はありません。<br><br>地域の人がお互いのことを知っていて、程よく干渉し合う。取り戻したいのはその温度で、あの息苦しさではありません。<br><br>立ち寄ってもいいし、通り過ぎてもいい。<strong style="color:#5d4d8c;font-weight:600">ほど良いおせっかい</strong>とは、その距離のことです。</p>
+    </div>
+    <div class="kwtags">
+      <span class="kw kwp">気づく</span><span class="kw kwp">程よい距離</span><span class="kw kwp">おせっかい</span>
+    </div>
+  </div>
+
+  <!-- ========== 第4段：動機は、純粋でなくていい ========== -->
+  <div class="kwsec">
+    <div class="lbl" style="text-align:center">参加のかたち</div>
+    <h2 class="stitle" style="text-align:center;max-width:680px;margin:0 auto">動機は、<span class="kwem-r">純粋でなくていい</span></h2>
+    <div class="kwbridge" style="margin-top:40px;margin-bottom:0">
+      <p>誰かの役に立てた日、自分のことも少し好きになれた。それは、不純なことでしょうか。<br><br>利己が悪いわけでも、利他がすばらしいわけでもない、と私たちは考えています。誰かに手を伸ばすとき、そこにはたいてい、そうしている自分でいたいという気持ちが混じっている。混じっていて、いい。<br><br>その利己心を、素敵に使える世の中になってほしい。動機の純度は、関わる条件にしません。ついででいい。</p>
+    </div>
+  </div>
+
+  <!-- ========== 第5段：進歩は測れて、調和は測れなかった ========== -->
   <div class="sgrid">
     <div class="stxt">
-      <h3>問いかけから始まった</h3>
-      <p>1970年の大阪万博、そのテーマは「人類の進歩と調和」だった。6400万人を超える人々が未来への希望を胸に集まったあの日から、半世紀以上が経過した。<br><br>宇宙への進出、iPS細胞による再生医療の可能性、生成AIの急速な普及——テクノロジーの観点から見れば、世界は確かに驚くべき進化を遂げた。<br><br>しかし——人類は本当に「進歩と調和」を達成できたのだろうか？</p>
+      <h3>進歩は測れて、調和は測れなかった</h3>
+      <p>1970年、大阪で開かれた万国博覧会のテーマは「人類の進歩と調和」でした。あれから半世紀。進歩のほうは、目に見える形で残っています。<br><br>調和のほうは、何をもって達成と呼べばいいのか、いまも分かりません。——調和とは、制度でも技術でもなく、<strong style="color:#5d4d8c;font-weight:600">誰かが誰かの理解者でいる、その状態の総量</strong>だったのではないか。私たちは、そう考えることにしました。<br><br>人類の調和は誰にも測れないけれど、二人のあいだの調和なら、確かめられる。その一つひとつが、結び目になります。</p>
     </div>
     <div class="svis">
       <div class="vnum">1970</div>
@@ -325,46 +423,17 @@ footer p{font-size:.78rem;line-height:2}
     </div>
   </div>
 
-  <div class="kwsec">
-    <div class="lbl" style="text-align:center">今の世界</div>
-    <h2 class="stitle" style="text-align:center;max-width:640px;margin:0 auto">今の世の中は、<span class="kwem-n">確かに利己的</span>である</h2>
-    <p class="sbody" style="text-align:center;max-width:640px;margin:20px auto 0">差別や無関心、利益主義——。</p>
-    <div class="kwtags">
-      <span class="kw kwn">無関心</span><span class="kw kwn">嫉妬</span><span class="kw kwn">損得勘定</span><span class="kw kwn">誹謗中傷</span><span class="kw kwn">絶望</span><span class="kw kwn">ハラスメント</span><span class="kw kwn">帰属意識の欠如</span><span class="kw kwn">利己主義</span><span class="kw kwn">差別</span><span class="kw kwn">戦争</span>
-    </div>
-    <div class="kwbridge">
-      <p>それでも、地域の人がお互いのことを知っていて、程よく干渉し合う——そんな昭和の頃のような温かい世の中を、少しでも作りたい。<br><br>利他的でいようとすることには、ある意味、利己的な気持ちの要素がある。その利己心を、素敵に使える世の中になってほしい。</p>
-      <div class="kwlink"><span>だからこそ</span></div>
-    </div>
-    <div class="lbl" style="text-align:center">目指す世界</div>
-    <h2 class="stitle" style="text-align:center;max-width:680px;margin:0 auto"><span class="kwem-r">利己心</span>を秘めた、<span class="kwem-l">利他的な社会</span>を創る</h2>
-    <div class="kwtags">
-      <span class="kw kwp">理解</span><span class="kw kwp">つながり</span><span class="kw kwp">共感</span><span class="kw kwp">協力</span><span class="kw kwp">結び</span><span class="kw kwp">信頼</span><span class="kw kwp">多様性</span><span class="kw kwp">対話</span><span class="kw kwp">平和</span>
-    </div>
-  </div>
-
-  <div class="sgrid" style="direction:rtl">
-    <div class="stxt" style="direction:ltr">
-      <h3>2025年、新たなテーマ</h3>
-      <p>2025年の大阪・関西万博、テーマは「いのち輝く未来社会のデザイン」。<br><br>このテーマは単なる希望ではなく、私たちへの問いかけでもある。いのちが輝く社会とはどんな社会か。誰かのことを想い、行動することで、世の中はきっと良くなる——そう信じている。<br><br>You&amp;i（結）は、その信念を形にするために生まれた。</p>
-    </div>
-    <div class="svis" style="direction:ltr">
-      <div class="vnum">2025</div>
-      <div class="vtxt"><strong>いのち輝く未来社会のデザイン</strong>大阪・関西万博 テーマ</div>
-    </div>
-  </div>
-
-  <div style="background:linear-gradient(135deg,rgba(184,175,214,.12),rgba(158,202,216,.1),rgba(232,180,184,.08));padding:90px 40px;text-align:center;position:relative;overflow:hidden">
+  <!-- ========== 着地：ミッション文の回収 ========== -->
+  <div style="background:linear-gradient(135deg,rgba(184,175,214,.12),rgba(158,202,216,.1),rgba(232,180,184,.08));padding:80px 40px;text-align:center;position:relative;overflow:hidden">
     <div style="position:absolute;top:-50px;left:-50px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(184,175,214,.18),transparent 70%);pointer-events:none"></div>
     <div style="position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,180,184,.16),transparent 70%);pointer-events:none"></div>
-    <div style="position:relative;z-index:1;max-width:720px;margin:0 auto">
-      <div class="lbl" style="text-align:center;color:#5d4d8c">What We Do</div>
-      <h2 class="stitle" style="text-align:center;max-width:700px;margin:0 auto 36px"><span style="display:inline-block">You&amp;i（結）は、</span><span style="display:inline-block">これからの未来を</span><span style="display:inline-block">創り、紡ぐ</span></h2>
-      <p class="sbody" style="text-align:center;margin:0 auto 44px;max-width:600px;color:#4a4855;font-size:.95rem;line-height:2.3;word-break:auto-phrase">あらゆる人は、時に「困っている人」になり、時に「頑張っている人」になる。だからこそ、誰もが互いの<strong style="color:#5d4d8c;font-weight:600">存在</strong>を知る必要があります。<br><br>助けるとは、相手を変えることでも、正しい方向へ導くことでもありません。その人が今いる場所をいとおしく思いながら認め、本人が自分の足で一歩を踏み出せるよう、そっと背中を押すこと。<strong style="color:#5d4d8c;font-weight:600">乗り越えることは、変わることでなくていい。</strong><br><br>だから、「助ける人／助けられる人」という上下はありません。主体性は、いつも本人に残る。誰もが支える側にも、支えられる側にもなれる——私たちの主語が<strong style="color:#a14e5c;font-weight:600">「あらゆる人」</strong>である理由が、ここにあります。</p>
-      <p class="sbody" style="text-align:center;margin:0 auto 36px;max-width:580px;color:#4a4855;font-size:.96rem;line-height:2.4"><span style="display:inline-block">互いを知り、</span><span style="display:inline-block">理解があって初めて、</span><span style="display:inline-block">想いの<strong style="color:#a14e5c;font-weight:600">結び目</strong>は生まれる。</span><br><br><span style="display:inline-block">「<strong style="color:#5d4d8c;font-weight:600">結</strong>」という漢字が示すように、</span><span style="display:inline-block">人と人をつなぎ、</span><span style="display:inline-block">想いを束ね、</span><span style="display:inline-block">新たな未来の布を織り上げていく。</span><br><br><span style="display:inline-block">あらゆる人の<strong style="color:#5d4d8c;font-weight:600">理解者</strong>となり、</span><span style="display:inline-block">その想いの結び目をつくることが、</span><span style="display:inline-block">私たちのミッションです。</span></p>
+    <div style="position:relative;z-index:1;max-width:760px;margin:0 auto">
+      <p class="lead" style="max-width:660px;margin:0 auto 12px">あらゆる人の<em>理解者</em>となり、<br>想いの<em>結び目</em>をつくる。</p>
+      <p class="sbody" style="text-align:center;margin:0 auto 40px;max-width:520px;color:#4a4855">——進歩と調和の、調和のほうを。</p>
       <button class="btn" onclick="go('projects')">プロジェクトを見る</button>
     </div>
   </div>
+
   <footer>
     <div class="fbrand">You&amp;i 結</div>
     <div class="flinks">
@@ -392,11 +461,20 @@ footer p{font-size:.78rem;line-height:2}
       <div class="pinfo">
         <span class="ptag" style="background:rgba(184,175,214,.15);color:var(--lav)">You&amp;i Space</span>
         <h3>支援を善意で終わらせない、支援者支援の総合プラットフォーム</h3>
+        <p class="lead">支える人もまた、支えを必要としている。<br>その塞がれた回路を、こちらから作りに行きます。</p>
+        <div class="kpts rows">
+          <div class="kpt"><span class="kn">01</span><div class="kbody"><h4>誰もが「支える側」に立つ</h4><p>支援者とは特別な属性ではなく、人生のどこかで誰もが立つ“支える側の位置”のこと。そして支える側こそ、しばしば最も孤立します。</p></div></div>
+          <div class="kpt"><span class="kn">02</span><div class="kbody"><h4>役割が、循環する</h4><p>今日助けられた人が、明日は誰かを助ける。信頼スコアと＆ポイントが、善意を「見える・貯まる・返ってくる」かたちに変えます。</p></div></div>
+          <div class="kpt"><span class="kn">03</span><div class="kbody"><h4>平時から、災害時へ</h4><p>ご近所のほど良いおせっかいが行き交う関係を取り戻す。日常で使えなければ、有事には使えないから。</p></div></div>
+        </div>
+        <details class="more">
+          <summary>Space をくわしく読む</summary>
+          <div class="mbody">
         <p>原点は、災害医療にあります。家族の安否がわからないまま働く被災支援者、介護で現場に行けない担い手——<strong>支援する人もまた、支援を必要としています。</strong>けれどこれは、災害のときだけの話ではありません。「支援者」とは特別な属性ではなく、誰もが人生のどこかで立つ<strong>“支える側の位置”</strong>のこと。そして支える側こそ、しばしば最も孤立します。社会が「助けている人＝大丈夫な人」と見なすため、<strong>“助けを求める回路”が構造的に塞がれている</strong>のです。</p>
         <p>私たちの言う<strong>支援者支援</strong>とは、その塞がれた回路を、こちらから作りに行く営み。<strong>「支える」行為が生まれやすく・続きやすく・報われやすい環境を整えること</strong>です。助けを求めている支援者と、善意はあるのにまだ一歩を踏み出せない<strong>“まだ出番がないだけの担い手”</strong>を結び、<strong>役割を循環させます</strong>——今日助けられた人が、明日は誰かを助ける。慈善ではなく、相互扶助です。</p>
         <p>「善意で終わらせない」には、二つの意味があります。ひとつは、<strong>一度きりの善意で終わらせない</strong>こと。信頼スコアと＆ポイントが、善意を<strong>「見える・貯まる・返ってくる」</strong>かたちに変えます。もうひとつは、<strong>一部の人の善意に頼りきりにしない</strong>こと。いま支援の多くは限られた善意に支えられ、社会はそれを当たり前として受け取ってきました。<strong>その“当たり前”のほうを、変えていきます。</strong></p>
         <p>だから私たちは、平時から始めます。ご近所のちょっとした頼みごと、声をかける・かけられる——そんな<strong>ほど良いおせっかい</strong>が行き交う関係を取り戻すこと。平時に積み重なる小さな共助と信頼が、そのまま<strong>災害時の支援調整インフラ</strong>になります——<strong>日常で使えなければ、有事には使えない</strong>から。個人だけでなく、団体・行政も同じ基盤でつながります。</p>
-
+            <h4>主な取り組み</h4>
         <ul class="pfeats">
           <li>支援者・受援者のマッチングシステム（個人・団体・行政）</li>
           <li>支援者のリスティング＆スキル可視化</li>
@@ -406,6 +484,8 @@ footer p{font-size:.78rem;line-height:2}
           <li>地域の“ほど良いおせっかい”を取り戻す、平時の関わりづくり</li>
           <li>平時も災害時も、「支援前」から支援者を支える（フェーズフリー）——踏み出せない担い手の後押しと、専門組織の隙間の補完</li>
         </ul>
+          </div>
+        </details>
       </div>
     </div>
 
@@ -418,15 +498,26 @@ footer p{font-size:.78rem;line-height:2}
       <div class="pinfo">
         <span class="ptag" style="background:rgba(232,180,184,.2);color:#c07880">You&amp;i Gallery</span>
         <h3>誰もが等身大で表現でき、想いが交差する現代の井戸端を育む</h3>
+        <p class="lead">私たちは“井戸端”を失った。<br>人と人が直接出会える場を、もう一度。</p>
+        <div class="kpts rows">
+          <div class="kpt"><span class="kn">01</span><div class="kbody"><h4>売る場ではなく、交差する場</h4><p>水を汲む“ついで”に語らう。用事で行くのに、つながりは副産物として生まれる——そんな場所です。</p></div></div>
+          <div class="kpt"><span class="kn">02</span><div class="kbody"><h4>等身大でいられる</h4><p>いいねの数も、記録の永続性もない。だからこそ、人は飾らずにそのままでいられます。</p></div></div>
+          <div class="kpt"><span class="kn">03</span><div class="kbody"><h4>いまは、小さく始めています</h4><p>大阪・ジュンク堂大阪本店内の cue books から。どんな形に育てるかは、あえて決めていません。</p></div></div>
+        </div>
+        <details class="more">
+          <summary>Gallery をくわしく読む</summary>
+          <div class="mbody">
         <p>かつて村には<strong>井戸端</strong>がありました。水を汲みに集まり、その“ついで”に語らう——用事で行くのに、つながりは副産物として生まれる場所です。やがて暮らしが便利になるほど、私たちは偶然の出会いを生む場所を失いました。You&amp;i Galleryは、その井戸端を現代に取り戻す試み。<strong>人と人が直接出会い、想いを交わせるオフラインの場</strong>です。売る場ではなく、<strong>想いが交差する場</strong>。いいねの数も記録の永続性もないからこそ、人は<strong>等身大</strong>でいられます。</p>
         <p>いまは大阪・ジュンク堂大阪本店内の<strong>cue books</strong>で、小さく始めています。ここからどんな形に育てるかは<strong>あえて決めていません</strong>。大切なのは形よりも、<strong>まず、人と人が出会える場をつくること</strong>。結の<strong>「オフラインの顔」</strong>として、地域や仲間とともに育てていきます。</p>
-
+            <h4>いまの姿とこれから</h4>
         <ul class="pfeats">
           <li><strong>現在</strong>：cue books（ジュンク堂大阪本店）でZINE・自作品を展示・販売中</li>
           <li><strong>役割</strong>：結の「オフラインの顔」として、人と人が直接出会い交流できる場をつくる</li>
           <li><strong>理想像（未定）</strong>：子ども食堂×高齢者の憩いの場×学生・社会人の隠れ家のような「第3の居場所」＋等身大で発信できるレンタルスペース</li>
           <li><strong>Spaceと対</strong>：貯めた＆ポイントのリアルな出口になり、オンラインとオフラインで「つながり」が循環する</li>
         </ul>
+          </div>
+        </details>
       </div>
     </div>
 
@@ -439,15 +530,26 @@ footer p{font-size:.78rem;line-height:2}
       <div class="pinfo">
         <span class="ptag" style="background:rgba(168,196,176,.25);color:#4f8a63">You&amp;i Note</span>
         <h3>物事の本質に触れる、旅と記録</h3>
+        <p class="lead">「理解」の手前に、「知る」を置きました。<br><em>知る → 理解 → 結び目</em>。</p>
+        <div class="kpts rows">
+          <div class="kpt"><span class="kn">01</span><div class="kbody"><h4>旅 ── 現場に立つ</h4><p>少人数で足を運び、見て、聞いて、持ち帰った問いを言葉にするまでを一つの単位に。</p></div></div>
+          <div class="kpt"><span class="kn">02</span><div class="kbody"><h4>記録 ── 確かめて残す</h4><p>一次資料に当たって確かめ、読み物として書く層と、次に調べる人のために出典ごと残す層を置く。</p></div></div>
+          <div class="kpt"><span class="kn">03</span><div class="kbody"><h4>守ること</h4><p>一次に当たる／出典を必ず示す／結論を急がない。「そう単純ではなかった」をそのまま出せることを大切に。</p></div></div>
+        </div>
+        <details class="more">
+          <summary>Note をくわしく読む</summary>
+          <div class="mbody">
         <p>理解は、無から立ち上がりません。人を理解しようとするとき、私たちはその人が立っている物事——制度、現場、歴史、数字——をほとんど知らないまま向き合っています。誤解や無関心の多くは、悪意からではなく<strong>「知らないこと」と「知ったつもり」</strong>から生まれます。だから私たちは、「理解」の手前に「知る」を置きました——<strong>知る → 理解 → 結び目</strong>。</p>
         <p>You&amp;i Noteは、その「知る」を担うプロジェクト。SpaceとGalleryが<strong>「人を理解する」</strong>ふたつの面だとすれば、Noteは<strong>「物事を知る」</strong>面です。ビジョンの二語が、そのまま活動のかたちになっています——現場に立つ<strong>「旅」</strong>と、一次資料に当たって確かめる<strong>「記録」</strong>。</p>
-
+            <h4>活動のかたち</h4>
         <ul class="pfeats">
           <li><strong>旅</strong>：スタディツアー。少人数で現場に足を運び、見て、聞いて、持ち帰った問いを言葉にするまでを一つの単位に</li>
           <li><strong>記録</strong>：メディア＆アーカイブ。一次資料に当たって確かめ、読み物として書く層と、次に調べる人のために出典ごと残す層を置く</li>
           <li><strong>循環</strong>：現場が問いを生む → 資料が答えを検証する → 記録が次の人の出発点になる</li>
           <li><strong>守ること</strong>：一次に当たる／出典を必ず示す（調査名・年・版まで）／結論を急がない——「そう単純ではなかった」をそのまま出せることを大切に</li>
         </ul>
+          </div>
+        </details>
       </div>
     </div>
 
@@ -457,7 +559,20 @@ footer p{font-size:.78rem;line-height:2}
   <div style="background:linear-gradient(135deg,rgba(184,175,214,.08),rgba(232,180,184,.08));padding:60px 40px;text-align:center">
     <div class="lbl" style="text-align:center;color:#5d4d8c">Synergy</div>
     <h2 style="font-family:'Noto Serif JP',serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:500;color:var(--ink);max-width:700px;margin:0 auto 20px;line-height:1.8">3つのプロジェクトは、ひとつの循環でつながる</h2>
+    <p style="font-family:'Noto Serif JP',serif;font-size:.95rem;line-height:2.2;color:var(--tl);max-width:640px;margin:0 auto">三つをつなぐ共通の根は<strong style="color:var(--ink);font-weight:600">「理解」</strong>。別々の事業ではなく、<strong style="color:var(--ink);font-weight:600">「結ぶ」という一つの行為の、それぞれの顔</strong>です。</p>
+    <div class="flow">
+      <div class="fstep"><span class="fk">知る</span><span class="fw">Note</span><p>現場に立ち、一次資料に当たって、物事の輪郭を確かめる。</p></div>
+      <div class="farr">&#8594;</div>
+      <div class="fstep"><span class="fk">理解する</span><span class="fw">Space &amp; Gallery</span><p>支える人の隠れた弱さを、等身大のその人を、理解する。</p></div>
+      <div class="farr">&#8594;</div>
+      <div class="fstep"><span class="fk">結ぶ</span><span class="fw">You&amp;i 結</span><p>理解があって初めて、想いの結び目が生まれる。</p></div>
+    </div>
+    <details class="more" style="max-width:640px;margin:36px auto 0">
+      <summary>三つのつながりをくわしく読む</summary>
+      <div class="mbody" style="text-align:left">
     <p style="font-family:'Noto Serif JP',serif;font-size:.92rem;line-height:2.2;color:var(--tl);max-width:600px;margin:0 auto">Space・Gallery・Noteは、別々の事業ではありません。三つをつなぐ共通の根は<strong style="color:var(--ink);font-weight:600">「理解」</strong>——Spaceは支える人の隠れた弱さを理解し、Galleryは等身大のその人を理解し、Noteはその人が立っている物事を理解する。『困っている人／頑張っている人』×『オンライン／オフライン』という2つの軸の上で、Spaceはつながりの<strong style="color:var(--ink);font-weight:600">“仕組み”</strong>を、Galleryは出会いの<strong style="color:var(--ink);font-weight:600">“場”</strong>をつくる。Noteは対象が人ではなく物事なので、この2軸には乗りません——けれど<strong style="color:var(--ink);font-weight:600">軸が揃わないだけで、三つは対等な事業</strong>です。三つはいずれも<strong style="color:var(--ink);font-weight:600">「結ぶ」という一つの行為の、それぞれの顔</strong>です。<br><br>Spaceで支援を担った人が、Galleryというオフラインの場で人と出会い、ねぎらわれる。貯めた＆ポイントの“リアルな出口”がそこにあり、オンラインの善意がオフラインの出会いに変わる。そしてGalleryで生まれた顔の見える関係が、こんどはSpaceの支え合いを支える——オンラインとオフラインを往復する、その循環を私たちはつくります。<br><br>Noteはその循環に、確かめられた「知」を差し出します。現場に立ち、一次資料に当たって分かったことが、SpaceとGalleryが向き合う物事の輪郭を描く。知ることが理解を助け、理解が想いの結び目をつくる——<strong style="color:var(--ink);font-weight:600">知る → 理解 → 結び目</strong>。</p>
+      </div>
+    </details>
   </div>
 
 
@@ -546,7 +661,7 @@ footer p{font-size:.78rem;line-height:2}
     <!-- Members placeholder -->
     <div>
       <div style="font-size:.65rem;letter-spacing:.3em;color:var(--lav);text-transform:uppercase;margin-bottom:32px;font-weight:500;text-align:center">Members</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px">
 
         <!-- 岡本真子 -->
         <div style="background:#fff;border-radius:20px;padding:36px 32px;box-shadow:0 4px 24px rgba(0,0,0,.04);border:1px solid rgba(184,175,214,.12);text-align:center">
@@ -566,6 +681,16 @@ footer p{font-size:.78rem;line-height:2}
           <div style="display:inline-block;padding:4px 16px;border-radius:20px;background:rgba(184,175,214,.15);border:1px solid rgba(184,175,214,.35);font-size:.7rem;letter-spacing:.12em;color:var(--lav);margin-bottom:16px">You&amp;i Space メンバー</div>
           <div style="height:1px;background:linear-gradient(to right,transparent,rgba(184,175,214,.3),transparent);margin-bottom:16px"></div>
           <p style="font-size:.82rem;line-height:2.1;color:var(--tl)">三重大学医学部在籍。旅をすることが好きで、旅先での様々な出会いを大切にしている。人と人とが優しく温かくつながる場所をつくっていきたい。</p>
+        </div>
+
+        <!-- 辰川友麻 -->
+        <div style="background:#fff;border-radius:20px;padding:36px 32px;box-shadow:0 4px 24px rgba(0,0,0,.04);border:1px solid rgba(184,175,214,.12);text-align:center">
+          <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#e8e4f8,#d4e8f4);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:#6b5fa8">辰</div>
+          <div style="font-family:'Noto Serif JP',serif;font-size:1.2rem;font-weight:400;color:var(--ink);margin-bottom:4px">辰川 友麻</div>
+          <div style="font-size:.72rem;letter-spacing:.12em;color:var(--lav);margin-bottom:10px">たつかわ ゆま</div>
+          <div style="display:inline-block;padding:4px 16px;border-radius:20px;background:rgba(184,175,214,.15);border:1px solid rgba(184,175,214,.35);font-size:.7rem;letter-spacing:.12em;color:var(--lav);margin-bottom:16px">You&amp;i Space メンバー</div>
+          <div style="height:1px;background:linear-gradient(to right,transparent,rgba(184,175,214,.3),transparent);margin-bottom:16px"></div>
+          <p style="font-size:.82rem;line-height:2.1;color:var(--tl)">日本赤十字広島看護大学在籍。食が好き。ジャンルを問わず本を読み、知らない世界を気ままに旅している。誰がどこで何をしているのか、人はどう生き、どう死ぬのか。気になることは尽きないけれど、人類について考えながら、今日のごはんについても考えている。</p>
         </div>
 
         <!-- 山岸荘汰 -->
@@ -689,7 +814,9 @@ function go(name){
   for(var i=0;i<btns.length;i++)  btns[i].classList.remove('act');
   document.getElementById('pg-'+name).classList.add('on');
   var nb = document.getElementById('nb-'+name);
-  if(nb) nb.classList.add('act');
+  if(nb){ nb.classList.add('act');
+    try{ nb.scrollIntoView({inline:'nearest',block:'nearest'}); }catch(e){}
+  }
   history.replaceState(null,'','#'+name);
   window.scrollTo(0,0);
 }
