@@ -243,6 +243,22 @@ details.more .mbody{animation:fi .35s ease;padding-bottom:10px}
   .pinfo{padding:32px 24px}
   .flow{gap:8px}
 }
+
+/* ---- MISSION：一続きの読み物として組む（2026-09-22） ---- */
+.mread{max-width:700px;margin:0 auto;padding:84px 40px 0}
+.mlead{font-family:'Noto Serif JP',serif;font-size:.95rem;line-height:2.2;color:var(--tl);text-align:center;margin-bottom:56px}
+.mblk{padding:46px 0;border-top:1px solid rgba(184,175,214,.22)}
+.mblk:first-of-type{border-top:none;padding-top:0}
+.mnum{font-family:'Cormorant Garamond',serif;font-size:.9rem;letter-spacing:.3em;color:var(--lav);margin-bottom:12px}
+.mh{font-family:'Noto Serif JP',serif;font-size:clamp(1.15rem,2.5vw,1.5rem);font-weight:500;line-height:1.85;color:var(--ink);margin-bottom:18px;letter-spacing:.02em}
+.mp{font-size:.95rem;line-height:2.35;color:#4a4855;word-break:auto-phrase}
+.mp + .mp{margin-top:20px}
+@media(max-width:768px){
+  .mread{padding:56px 20px 0}
+  .mblk{padding:36px 0}
+  .mlead{margin-bottom:40px;font-size:.9rem}
+  .mbr{display:none}
+}
 </style>
 </head>
 <body>
@@ -358,92 +374,55 @@ details.more .mbody{animation:fi .35s ease;padding-bottom:10px}
     </div>
   </div>
 
+  <!-- ========== この想いは、どこから来たのか（概念ノート§1-1） ========== -->
+  <div class="mread">
+    <div class="lbl" style="text-align:center;margin-bottom:14px">理念</div>
+    <h2 class="stitle" style="text-align:center;margin:0 auto 18px">この想いは、<br>どこから来たのか</h2>
+    <p class="mlead">結が何をしようとしているのかは、<br>五つのことで、だいたい伝わると思います。</p>
 
-
-  <!-- ========== 結の考えを四つで（概念ノート§1-3） ========== -->
-  <div class="sec" style="max-width:940px;padding:76px 40px 64px">
-    <div class="lbl" style="text-align:center">結の考え</div>
-    <h2 class="stitle" style="text-align:center;max-width:640px;margin:0 auto 14px">四つのことを、考えています</h2>
-    <p class="sbody" style="text-align:center;margin:0 auto;max-width:520px">You&amp;i（結）が何をしようとしているのかは、<br>この四つでだいたい伝わると思います。</p>
-    <div class="kpts" style="grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));margin-top:36px">
-      <div class="kpt"><span class="kn">01</span><h4>助けるとは、理解者になること</h4><p>相手を変えるのでも、導くのでもない。その人が今いる場所を認めて、そっと背中を押す。</p></div>
-      <div class="kpt"><span class="kn">02</span><h4>けれど、気づかれないまま過ぎていく</h4><p>隣に誰が住んでいるかも知らない。困っていても、たぶん気づかない。</p></div>
-      <div class="kpt"><span class="kn">03</span><h4>知らなくていい。気づけたら、それでいい</h4><p>全部を知る必要はない。あたたかさは取り戻して、監視は取り戻さない。</p></div>
-      <div class="kpt"><span class="kn">04</span><h4>動機は、純粋でなくていい</h4><p>利他のなかには、たいてい利己がある。混じっていて、いい。ついででいい。</p></div>
+    <div class="mblk">
+      <div class="mnum">01</div>
+      <h3 class="mh">助けるとは、理解者になること</h3>
+      <p class="mp">助けるというのは、相手を変えることでも、正しい方向へ導くことでもありません。その人が今いる場所を認めて、愛おしいと思えるように、そっと背中を押すこと。</p>
+      <p class="mp">乗り越えることは、変わることでなくていい。結がやりたいことは、突き詰めればこれだけです。</p>
     </div>
-    <p class="sbody" style="text-align:center;margin:36px auto 0;max-width:520px;font-size:.85rem">——以下、ひとつずつお話しします。</p>
+
+    <div class="mblk">
+      <div class="mnum">02</div>
+      <h3 class="mh">取り戻したいのは、<br class="mbr">程よく干渉し合う温かさ</h3>
+      <p class="mp">地域の人がお互いのことを知っていて、程よく干渉し合う。人がお互いをよく知っていた頃のような温かい世の中を、少しでも作りたい。</p>
+      <p class="mp">ただし、「程よく」が鍵です。あたたかさは取り戻して、監視は取り戻さない。この線は、結のすべての設計に通っています。</p>
+    </div>
+
+    <div class="mblk">
+      <div class="mnum">03</div>
+      <h3 class="mh">半世紀前の問いが、<br class="mbr">まだ終わっていない</h3>
+      <p class="mp">1970年の大阪万博のテーマは「人類の進歩と調和」。あれから半世紀、技術の進歩は目を見張るものがあります。では、調和のほうはどうだったのか。</p>
+      <p class="mp">人類は本当に「進歩と調和」を達成できたのか。結は、この問いの後半——調和のほう——を問い続け、それに向けて挑戦します。</p>
+    </div>
+
+    <div class="mblk">
+      <div class="mnum">04</div>
+      <h3 class="mh">今の世の中は、確かに利己的である</h3>
+      <p class="mp">無関心。損得勘定。帰属意識の欠如。名前を伏せたままの言葉。</p>
+      <p class="mp">ただし、誰かの心根が冷えたからだとは思っていません。人を責めたいのではなく、そうなっている構造のほうを変えたい。</p>
+    </div>
+
+    <div class="mblk">
+      <div class="mnum">05</div>
+      <h3 class="mh">利他のなかには、利己がある</h3>
+      <p class="mp">誰かのために動こうとする気持ちの奥には、たいてい「そうしている自分でいたい」という気持ちが混じっています。</p>
+      <p class="mp">利己が悪いわけでも、利他がすばらしいわけでもない。混じっていて、いい。その利己心を、素敵に使える世の中になってほしい。だから結は、関わる人に動機の純度を求めません。</p>
+    </div>
   </div>
-  <div class="divider"></div>
-  <!-- ========== 第1段：わかってほしかった、という記憶 ========== -->
-  <div style="background:linear-gradient(135deg,rgba(184,175,214,.12),rgba(158,202,216,.1),rgba(232,180,184,.08));padding:90px 40px;text-align:center;position:relative;overflow:hidden">
+
+  <!-- ========== 着地 ========== -->
+  <div style="background:linear-gradient(135deg,rgba(184,175,214,.12),rgba(158,202,216,.1),rgba(232,180,184,.08));padding:84px 40px;text-align:center;position:relative;overflow:hidden;margin-top:80px">
     <div style="position:absolute;top:-50px;left:-50px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(184,175,214,.18),transparent 70%);pointer-events:none"></div>
     <div style="position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,180,184,.16),transparent 70%);pointer-events:none"></div>
-    <div style="position:relative;z-index:1;max-width:940px;margin:0 auto">
-      <div class="lbl" style="text-align:center;color:#5d4d8c">01 ｜ 理念の核</div>
-      <h2 class="stitle" style="text-align:center;max-width:720px;margin:0 auto;font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1.7">助けるとは、<br>理解者になること。</h2>
-      <div class="kpts" style="max-width:900px;margin:44px auto 0">
-        <div class="kpt"><span class="kn">01</span><h4>変えることでは、ない</h4><p>相手を変えることでも、正しい方向へ導くことでもありません。</p></div>
-        <div class="kpt"><span class="kn">02</span><h4>今いる場所を、認める</h4><p>その人が今いる場所をいとおしく思いながら認め、そっと背中を押すこと。</p></div>
-        <div class="kpt"><span class="kn">03</span><h4>変わることでなくていい</h4><p>乗り越えることは、変わることでなくていい。踏み出すのは、いつでも本人自身です。</p></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========== 第2段：けれど、気づかれないまま過ぎていく ========== -->
-  <div class="kwsec">
-    <div class="lbl" style="text-align:center">02 ｜ 今の世界</div>
-    <h2 class="stitle" style="text-align:center;max-width:680px;margin:0 auto">けれど、<span class="kwem-n">気づかれないまま</span>過ぎていく</h2>
-    <div class="kwbridge" style="margin-top:40px">
-      <p>隣の部屋に誰が住んでいるか、知らないまま何年も過ぎる。名前は知らない。困っていても、たぶん気づかない。</p>
-    </div>
-    <div class="kwtags">
-      <span class="kw kwn">無関心</span><span class="kw kwn">損得勘定</span><span class="kw kwn">名前を伏せたままの言葉</span>
-    </div>
-    <div class="kwbridge">
-      <p>今の世の中は、確かに利己的である——そう書いている私たちも、その中にいます。<br><br>誰かの心根が冷えたから、ではないと思います。人がお互いをよく知っていた頃には、詮索も、同調も、逃げ場のなさもありました。理由があって、私たちはあの距離を手放した。手放したものの中に、あたたかさまで混じっていた。</p>
-    </div>
-  </div>
-
-  <!-- ========== 第3段：知らなくていい。気づけたら、それでいい ========== -->
-  <div style="padding:80px 40px;text-align:center">
-    <div class="lbl" style="text-align:center">03 ｜ 目指す世界</div>
-    <h2 class="stitle" style="text-align:center;max-width:680px;margin:0 auto">知らなくていい。<br><span class="kwem-l">気づけたら</span>、それでいい</h2>
-    <div class="kwbridge" style="margin-top:40px">
-      <p>お互いのことを少しでも気づけて、意識できたら、世の中はもっと良くなる。あなたのすべてを、誰かが知る必要はありません。<br><br>地域の人がお互いのことを知っていて、程よく干渉し合う。取り戻したいのはその温度で、あの息苦しさではありません。<br><br>立ち寄ってもいいし、通り過ぎてもいい。<strong style="color:#5d4d8c;font-weight:600">ほど良いおせっかい</strong>とは、その距離のことです。</p>
-    </div>
-    <div class="kwtags">
-      <span class="kw kwp">気づく</span><span class="kw kwp">程よい距離</span><span class="kw kwp">おせっかい</span>
-    </div>
-  </div>
-
-  <!-- ========== 第4段：動機は、純粋でなくていい ========== -->
-  <div class="kwsec">
-    <div class="lbl" style="text-align:center">04 ｜ 参加のかたち</div>
-    <h2 class="stitle" style="text-align:center;max-width:680px;margin:0 auto">動機は、<span class="kwem-r">純粋でなくていい</span></h2>
-    <div class="kwbridge" style="margin-top:40px;margin-bottom:0">
-      <p>誰かの役に立てた日、自分のことも少し好きになれた。それは、不純なことでしょうか。<br><br>利己が悪いわけでも、利他がすばらしいわけでもない、と私たちは考えています。誰かに手を伸ばすとき、そこにはたいてい、そうしている自分でいたいという気持ちが混じっている。混じっていて、いい。<br><br>その利己心を、素敵に使える世の中になってほしい。動機の純度は、関わる条件にしません。ついででいい。</p>
-    </div>
-  </div>
-
-  <!-- ========== 第5段：進歩は測れて、調和は測れなかった ========== -->
-  <div class="sgrid">
-    <div class="stxt">
-      <h3>進歩は測れて、調和は測れなかった</h3>
-      <p>1970年、大阪で開かれた万国博覧会のテーマは「人類の進歩と調和」でした。あれから半世紀。進歩のほうは、目に見える形で残っています。<br><br>調和のほうは、何をもって達成と呼べばいいのか、いまも分かりません。——調和とは、制度でも技術でもなく、<strong style="color:#5d4d8c;font-weight:600">誰かが誰かの理解者でいる、その状態の総量</strong>だったのではないか。私たちは、そう考えることにしました。<br><br>人類の調和は誰にも測れないけれど、二人のあいだの調和なら、確かめられる。その一つひとつが、結び目になります。</p>
-    </div>
-    <div class="svis">
-      <div class="vnum">1970</div>
-      <div class="vtxt"><strong>人類の進歩と調和</strong>大阪万博 テーマ</div>
-    </div>
-  </div>
-
-  <!-- ========== 着地：ミッション文の回収 ========== -->
-  <div style="background:linear-gradient(135deg,rgba(184,175,214,.12),rgba(158,202,216,.1),rgba(232,180,184,.08));padding:80px 40px;text-align:center;position:relative;overflow:hidden">
-    <div style="position:absolute;top:-50px;left:-50px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(184,175,214,.18),transparent 70%);pointer-events:none"></div>
-    <div style="position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,180,184,.16),transparent 70%);pointer-events:none"></div>
-    <div style="position:relative;z-index:1;max-width:760px;margin:0 auto">
-      <p class="lead" style="max-width:660px;margin:0 auto 12px">あらゆる人の<em>理解者</em>となり、<br>想いの<em>結び目</em>をつくる。</p>
-      <p class="sbody" style="text-align:center;margin:0 auto 40px;max-width:520px;color:#4a4855">——進歩と調和の、調和のほうを。</p>
+    <div style="position:relative;z-index:1;max-width:720px;margin:0 auto">
+      <p class="sbody" style="text-align:center;margin:0 auto 26px;max-width:560px;color:#4a4855">五つは別々の話に見えて、<br>一つのことを別の角度から言っています。</p>
+      <p class="lead" style="max-width:660px;margin:0 auto 36px">あらゆる人の<em>理解者</em>となり、<br>想いの<em>結び目</em>をつくる。</p>
       <button class="btn" onclick="go('projects')">プロジェクトを見る</button>
     </div>
   </div>
