@@ -259,6 +259,61 @@ details.more .mbody{animation:fi .35s ease;padding-bottom:10px}
   .mlead{margin-bottom:40px;font-size:.9rem}
   .mbr{display:none}
 }
+/* ---- MEMBER：メンバー紹介（2026-11-08） ---- */
+.mem-hero{background:linear-gradient(160deg,#f0eefd,#fdf0f2,#f0f4fe);padding:80px 40px;text-align:center}
+.mem-hero .lbl{text-align:center;margin-bottom:16px}
+.mem-hero h1{font-family:'Noto Serif JP',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;color:var(--ink)}
+.mem-hero p{font-size:.88rem;color:var(--tl);margin-top:12px}
+.mem-wrap{max-width:1100px;margin:0 auto;padding:64px 40px 80px}
+.mem-lbl{font-size:.65rem;letter-spacing:.3em;color:var(--lav);text-transform:uppercase;margin-bottom:28px;font-weight:500;text-align:center}
+.mem-sep{height:1px;max-width:720px;margin:56px auto;background:linear-gradient(to right,transparent,rgba(184,175,214,.3),transparent)}
+/* 所属ごとの色：結＝金、Space＝ラベンダー、Gallery＝ピンク、Note＝緑 */
+.t-yui{--mc:#a59056;--mav-c:#a59056;--mav:linear-gradient(135deg,#f6f1e2,#efe7d4);--mrole-bg:rgba(200,184,122,.2);--mrole-bd:rgba(200,184,122,.45);--mln:rgba(200,184,122,.4);--mbd:rgba(200,184,122,.22)}
+.t-space{--mc:#8f85c2;--mav-c:#6b5fa8;--mav:linear-gradient(135deg,#e8e4f8,#d4e8f4);--mrole-bg:rgba(184,175,214,.15);--mrole-bd:rgba(184,175,214,.35);--mln:rgba(184,175,214,.3);--mbd:rgba(184,175,214,.14)}
+.t-gallery{--mc:#c07880;--mav-c:#c07880;--mav:linear-gradient(135deg,#f8eeee,#f8eef8);--mrole-bg:rgba(232,180,184,.18);--mrole-bd:rgba(232,180,184,.4);--mln:rgba(232,180,184,.3);--mbd:rgba(232,180,184,.18)}
+.t-note{--mc:#4f8a63;--mav-c:#4f8a63;--mav:linear-gradient(135deg,#eaf3ec,#dff0e8);--mrole-bg:rgba(168,196,176,.22);--mrole-bd:rgba(168,196,176,.5);--mln:rgba(168,196,176,.45);--mbd:rgba(168,196,176,.2)}
+.mem-av{width:72px;height:72px;border-radius:50%;background:var(--mav);display:flex;align-items:center;justify-content:center;flex:0 0 auto;font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--mav-c);margin-bottom:16px}
+.mem-name{font-family:'Noto Serif JP',serif;font-size:1.2rem;font-weight:400;color:var(--ink);margin-bottom:4px;letter-spacing:.04em}
+.mem-kana{font-size:.72rem;letter-spacing:.12em;color:var(--mc);margin-bottom:12px}
+.mem-role{display:inline-block;padding:4px 16px;border-radius:20px;background:var(--mrole-bg);border:1px solid var(--mrole-bd);font-size:.7rem;line-height:1.7;letter-spacing:.1em;color:var(--mc)}
+.mem-line{height:1px;background:linear-gradient(to right,transparent,var(--mln),transparent);margin:18px 0}
+.mem-bio{font-size:.82rem;line-height:2.05;color:var(--tl);text-align:left;word-break:auto-phrase}
+.mem-foot{margin-top:auto;padding-top:20px}
+.mem-link{display:inline-block;padding:8px 24px;border-radius:40px;border:1px solid var(--mrole-bd);font-size:.76rem;letter-spacing:.1em;color:var(--mc);text-decoration:none;transition:background .2s}
+.mem-link:hover{background:var(--mrole-bg)}
+/* 発起人：PCは横並び */
+.mem-founder{max-width:760px;margin:0 auto;background:#fff;border-radius:24px;padding:48px 52px;box-shadow:0 4px 32px rgba(0,0,0,.05);border:1px solid var(--mbd);display:flex;align-items:center;gap:40px}
+.mem-founder .mem-av{width:112px;height:112px;font-size:2.3rem;margin:0}
+.mem-founder .mem-body{flex:1 1 auto;min-width:0}
+.mem-founder .mem-name{font-size:1.45rem}
+.mem-founder .mem-kana{font-size:.78rem}
+.mem-founder .mem-line{background:linear-gradient(to right,var(--mln),transparent)}
+.mem-founder .mem-bio{font-size:.88rem;line-height:2.1}
+.mem-founder .mem-foot{padding-top:22px}
+.mem-founder .mem-link{padding:10px 28px;font-size:.78rem}
+/* メンバー：PC3列・タブレット2列・スマホ1列。端数の行は中央に寄せる */
+.mem-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:24px}
+.mem-card{flex:0 1 calc((100% - 48px) / 3);background:#fff;border-radius:20px;padding:36px 30px 32px;box-shadow:0 4px 24px rgba(0,0,0,.04);border:1px solid var(--mbd);text-align:center;display:flex;flex-direction:column;align-items:center}
+.mem-card .mem-line,.mem-card .mem-bio{align-self:stretch}
+.mem-cta{text-align:center;margin-top:48px}
+.mem-cta .btn{font-size:.85rem}
+@media(max-width:1023px){
+  .mem-card{flex-basis:calc((100% - 24px) / 2)}
+}
+@media(max-width:768px){
+  .mem-hero{padding:56px 20px}
+  .mem-wrap{padding:44px 20px 64px}
+  .mem-sep{margin:44px auto}
+}
+@media(max-width:680px){
+  .mem-grid{gap:16px}
+  .mem-card{flex-basis:100%;padding:30px 24px 28px}
+  .mem-founder{flex-direction:column;gap:20px;padding:36px 24px 32px;text-align:center}
+  .mem-founder .mem-av{width:96px;height:96px;font-size:2rem}
+  .mem-founder .mem-line{background:linear-gradient(to right,transparent,var(--mln),transparent)}
+  .mem-founder .mem-bio{font-size:.85rem}
+  .mem-cta{margin-top:40px}
+}
 </style>
 </head>
 <body>
@@ -624,94 +679,93 @@ details.more .mbody{animation:fi .35s ease;padding-bottom:10px}
 
 <!-- ========== MEMBER ========== -->
 <div id="pg-member" class="pg">
-  <div style="background:linear-gradient(160deg,#f0eefd,#fdf0f2,#f0f4fe);padding:80px 40px;text-align:center">
-    <div class="lbl" style="text-align:center;margin-bottom:16px">Member</div>
-    <h1 style="font-family:'Noto Serif JP',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;color:var(--ink)">メンバー</h1>
-    <p style="font-size:.88rem;color:var(--tl);margin-top:12px">You&amp;i（結）を共に紡ぐ人たち</p>
+  <div class="mem-hero">
+    <div class="lbl">Member</div>
+    <h1>メンバー</h1>
+    <p>You&amp;i（結）を共に紡ぐ人たち</p>
   </div>
 
-  <div style="max-width:900px;margin:0 auto;padding:60px 40px">
+  <div class="mem-wrap">
 
     <!-- Founder -->
-    <div style="margin-bottom:24px">
-      <div style="font-size:.65rem;letter-spacing:.3em;color:var(--lav);text-transform:uppercase;margin-bottom:32px;font-weight:500;text-align:center">Founder</div>
-      <div style="display:flex;justify-content:center">
-        <div style="background:#fff;border-radius:24px;padding:48px 56px;box-shadow:0 4px 32px rgba(0,0,0,.05);border:1px solid rgba(184,175,214,.15);text-align:center;max-width:480px;width:100%">
-          <div style="width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,#e8e4f8,#ddf0e8);margin:0 auto 24px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--lav)">成</div>
-          <div style="font-family:'Noto Serif JP',serif;font-size:1.4rem;font-weight:400;color:var(--ink);margin-bottom:4px">成 仁脩</div>
-          <div style="font-size:.78rem;letter-spacing:.15em;color:var(--lav);margin-bottom:10px">そん いんす</div>
-          <div style="display:inline-block;padding:4px 16px;border-radius:20px;background:rgba(184,175,214,.15);border:1px solid rgba(184,175,214,.35);font-size:.7rem;letter-spacing:.12em;color:var(--lav);margin-bottom:20px">You&amp;i（結）発起人</div>
-          <div style="height:1px;background:linear-gradient(to right,transparent,rgba(184,175,214,.3),transparent);margin-bottom:20px"></div>
-          <p style="font-size:.88rem;line-height:2.2;color:var(--tl);margin-bottom:24px">大阪医科薬科大学医学部在籍。漫画「SKET DANCE」から着想を得て、人々が誰かのことを想い行動する社会を目指し、プロジェクトを立ち上げる。</p>
-          <a href="https://my.prairie.cards/u/23.insu.s" target="_blank" rel="noopener" style="display:inline-block;padding:10px 28px;border-radius:40px;border:1px solid rgba(184,175,214,.5);font-size:.78rem;letter-spacing:.1em;color:var(--lav);text-decoration:none;transition:all .2s">プロフィールを見る →</a>
+    <section>
+      <div class="mem-lbl">Founder</div>
+      <div class="mem-founder t-yui">
+        <div class="mem-av">成</div>
+        <div class="mem-body">
+          <div class="mem-name">成 仁脩</div>
+          <div class="mem-kana">そん いんす</div>
+          <div class="mem-role">You&amp;i（結）発起人</div>
+          <div class="mem-line"></div>
+          <p class="mem-bio">大阪医科薬科大学医学部在籍。漫画「SKET DANCE」から着想を得て、人々が誰かのことを想い行動する社会を目指し、プロジェクトを立ち上げる。</p>
+          <div class="mem-foot"><a class="mem-link" href="https://my.prairie.cards/u/23.insu.s" target="_blank" rel="noopener">プロフィールを見る →</a></div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Divider -->
-    <div style="height:1px;background:linear-gradient(to right,transparent,rgba(184,175,214,.2),transparent);margin:48px 0"></div>
+    <div class="mem-sep"></div>
 
-    <!-- Members placeholder -->
-    <div>
-      <div style="font-size:.65rem;letter-spacing:.3em;color:var(--lav);text-transform:uppercase;margin-bottom:32px;font-weight:500;text-align:center">Members</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px">
+    <!-- Members -->
+    <section>
+      <div class="mem-lbl">Members</div>
+      <div class="mem-grid">
 
         <!-- 岡本真子 -->
-        <div style="background:#fff;border-radius:20px;padding:36px 32px;box-shadow:0 4px 24px rgba(0,0,0,.04);border:1px solid rgba(184,175,214,.12);text-align:center">
-          <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#e8e4f8,#d4e8f4);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:#6b5fa8">岡</div>
-          <div style="font-family:'Noto Serif JP',serif;font-size:1.2rem;font-weight:400;color:var(--ink);margin-bottom:4px">岡本 真子</div>
-          <div style="font-size:.72rem;letter-spacing:.12em;color:var(--lav);margin-bottom:10px">おかもと まこ</div>
-          <div style="display:inline-block;padding:4px 16px;border-radius:20px;background:rgba(184,175,214,.15);border:1px solid rgba(184,175,214,.35);font-size:.7rem;letter-spacing:.12em;color:var(--lav);margin-bottom:16px">You&amp;i Space メンバー</div>
-          <div style="height:1px;background:linear-gradient(to right,transparent,rgba(184,175,214,.3),transparent);margin-bottom:16px"></div>
-          <p style="font-size:.82rem;line-height:2.1;color:var(--tl)">岡山県立岡山芳泉高等学校在籍。自身も海に近い地域で育ち、自然の豊かさと共に、常に隣り合わせにある災害のリスクを肌で感じてきた。その経験から災害支援の重要性に強い関心を抱いている。</p>
+        <div class="mem-card t-space">
+          <div class="mem-av">岡</div>
+          <div class="mem-name">岡本 真子</div>
+          <div class="mem-kana">おかもと まこ</div>
+          <div class="mem-role">You&amp;i Space メンバー</div>
+          <div class="mem-line"></div>
+          <p class="mem-bio">岡山県立岡山芳泉高等学校在籍。自身も海に近い地域で育ち、自然の豊かさと共に、常に隣り合わせにある災害のリスクを肌で感じてきた。その経験から災害支援の重要性に強い関心を抱いている。</p>
         </div>
 
         <!-- 鈴木遥乃花 -->
-        <div style="background:#fff;border-radius:20px;padding:36px 32px;box-shadow:0 4px 24px rgba(0,0,0,.04);border:1px solid rgba(184,175,214,.12);text-align:center">
-          <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#e8e4f8,#d4e8f4);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:#6b5fa8">鈴</div>
-          <div style="font-family:'Noto Serif JP',serif;font-size:1.2rem;font-weight:400;color:var(--ink);margin-bottom:4px">鈴木 遥乃花</div>
-          <div style="font-size:.72rem;letter-spacing:.12em;color:var(--lav);margin-bottom:10px">すずき ののか</div>
-          <div style="display:inline-block;padding:4px 16px;border-radius:20px;background:rgba(184,175,214,.15);border:1px solid rgba(184,175,214,.35);font-size:.7rem;letter-spacing:.12em;color:var(--lav);margin-bottom:16px">You&amp;i Space メンバー</div>
-          <div style="height:1px;background:linear-gradient(to right,transparent,rgba(184,175,214,.3),transparent);margin-bottom:16px"></div>
-          <p style="font-size:.82rem;line-height:2.1;color:var(--tl)">三重大学医学部在籍。旅をすることが好きで、旅先での様々な出会いを大切にしている。人と人とが優しく温かくつながる場所をつくっていきたい。</p>
+        <div class="mem-card t-space">
+          <div class="mem-av">鈴</div>
+          <div class="mem-name">鈴木 遥乃花</div>
+          <div class="mem-kana">すずき ののか</div>
+          <div class="mem-role">You&amp;i Space プロジェクトリーダー</div>
+          <div class="mem-line"></div>
+          <p class="mem-bio">三重大学医学部在籍。旅をすることが好きで、旅先での様々な出会いを大切にしている。人と人とが優しく温かくつながる場所をつくっていきたい。</p>
         </div>
 
         <!-- 山岸荘汰 -->
-        <div style="background:#fff;border-radius:20px;padding:36px 32px;box-shadow:0 4px 24px rgba(0,0,0,.04);border:1px solid rgba(184,175,214,.12);text-align:center">
-          <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#f8eeee,#f8eef8);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:#c07880">山</div>
-          <div style="font-family:'Noto Serif JP',serif;font-size:1.2rem;font-weight:400;color:var(--ink);margin-bottom:4px">山岸 荘汰</div>
-          <div style="font-size:.72rem;letter-spacing:.12em;color:#c07880;margin-bottom:10px">やまぎし そうた</div>
-          <div style="display:inline-block;padding:4px 16px;border-radius:20px;background:rgba(232,180,184,.18);border:1px solid rgba(232,180,184,.4);font-size:.7rem;letter-spacing:.12em;color:#c07880;margin-bottom:16px">You&amp;i Gallery メンバー</div>
-          <div style="height:1px;background:linear-gradient(to right,transparent,rgba(232,180,184,.3),transparent);margin-bottom:16px"></div>
-          <p style="font-size:.82rem;line-height:2.1;color:var(--tl)">千葉大学修士2年。400人規模の学生団体の代表を経験。大阪・関西万博でも複数プロジェクトの企画を推進。</p>
-          <a href="https://www.instagram.com/sota1023__" target="_blank" rel="noopener" style="display:inline-block;margin-top:16px;padding:8px 24px;border-radius:40px;border:1px solid rgba(232,180,184,.5);font-size:.76rem;letter-spacing:.1em;color:#c07880;text-decoration:none">Instagram →</a>
+        <div class="mem-card t-gallery">
+          <div class="mem-av">山</div>
+          <div class="mem-name">山岸 荘汰</div>
+          <div class="mem-kana">やまぎし そうた</div>
+          <div class="mem-role">You&amp;i Gallery メンバー</div>
+          <div class="mem-line"></div>
+          <p class="mem-bio">千葉大学修士2年。400人規模の学生団体の代表を経験。大阪・関西万博でも複数プロジェクトの企画を推進。</p>
+          <div class="mem-foot"><a class="mem-link" href="https://www.instagram.com/sota1023__" target="_blank" rel="noopener">Instagram →</a></div>
         </div>
 
         <!-- 辰川友麻 -->
-        <div style="background:#fff;border-radius:20px;padding:36px 32px;box-shadow:0 4px 24px rgba(0,0,0,.04);border:1px solid rgba(184,175,214,.12);text-align:center">
-          <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#f6f1e2,#efe7d4);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:#a59056">辰</div>
-          <div style="font-family:'Noto Serif JP',serif;font-size:1.2rem;font-weight:400;color:var(--ink);margin-bottom:4px">辰川 友麻</div>
-          <div style="font-size:.72rem;letter-spacing:.12em;color:#a59056;margin-bottom:10px">たつかわ ゆま</div>
-          <div style="display:inline-block;padding:4px 16px;border-radius:20px;background:rgba(200,184,122,.2);border:1px solid rgba(200,184,122,.45);font-size:.7rem;letter-spacing:.12em;color:#a59056;margin-bottom:16px">You&amp;i（結）広報</div>
-          <div style="height:1px;background:linear-gradient(to right,transparent,rgba(200,184,122,.4),transparent);margin-bottom:16px"></div>
-          <p style="font-size:.82rem;line-height:2.1;color:var(--tl)">日本赤十字広島看護大学在籍。食が好き。ジャンルを問わず本を読み、知らない世界を気ままに旅している。誰がどこで何をしているのか、人はどう生き、どう死ぬのか。気になることは尽きないけれど、人類について考えながら、今日のごはんについても考えている。</p>
+        <div class="mem-card t-note">
+          <div class="mem-av">辰</div>
+          <div class="mem-name">辰川 友麻</div>
+          <div class="mem-kana">たつかわ ゆま</div>
+          <div class="mem-role">You&amp;i Note プロジェクトリーダー</div>
+          <div class="mem-line"></div>
+          <p class="mem-bio">日本赤十字広島看護大学在籍。食が好き。ジャンルを問わず本を読み、知らない世界を気ままに旅している。誰がどこで何をしているのか、人はどう生き、どう死ぬのか。気になることは尽きないけれど、人類について考えながら、今日のごはんについても考えている。</p>
         </div>
 
         <!-- 甲斐響大 -->
-        <div style="background:#fff;border-radius:20px;padding:36px 32px;box-shadow:0 4px 24px rgba(0,0,0,.04);border:1px solid rgba(184,175,214,.12);text-align:center">
-          <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#f6f1e2,#efe7d4);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:#a59056">甲</div>
-          <div style="font-family:'Noto Serif JP',serif;font-size:1.2rem;font-weight:400;color:var(--ink);margin-bottom:4px">甲斐 響大</div>
-          <div style="font-size:.72rem;letter-spacing:.12em;color:#a59056;margin-bottom:10px">かい きょうた</div>
-          <div style="display:inline-block;padding:4px 16px;border-radius:20px;background:rgba(200,184,122,.2);border:1px solid rgba(200,184,122,.45);font-size:.7rem;letter-spacing:.12em;color:#a59056;margin-bottom:16px">You&amp;i（結）メンバー</div>
-          <div style="height:1px;background:linear-gradient(to right,transparent,rgba(200,184,122,.4),transparent);margin-bottom:16px"></div>
-          <p style="font-size:.82rem;line-height:2.1;color:var(--tl)">九州産業大学商学部に在籍。宮崎県出身。自認フッ軽系の人間のため、2025年は通算40日以上大阪にいた。基本的にしゃべることか食べることしかできないため、他団体では宴会部長を兼任することが多い。</p>
+        <div class="mem-card t-yui">
+          <div class="mem-av">甲</div>
+          <div class="mem-name">甲斐 響大</div>
+          <div class="mem-kana">かい きょうた</div>
+          <div class="mem-role">You&amp;i（結）メンバー</div>
+          <div class="mem-line"></div>
+          <p class="mem-bio">九州産業大学商学部に在籍。宮崎県出身。自認フッ軽系の人間のため、2025年は通算40日以上大阪にいた。基本的にしゃべることか食べることしかできないため、他団体では宴会部長を兼任することが多い。</p>
         </div>
 
       </div>
-      <div style="text-align:center;margin-top:48px">
-        <button class="btn" onclick="go('contact')" style="font-size:.85rem">参加を希望する</button>
+      <div class="mem-cta">
+        <button class="btn" onclick="go('contact')">参加を希望する</button>
       </div>
-    </div>
+    </section>
 
   </div>
 
