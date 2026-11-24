@@ -294,61 +294,42 @@ details.more .mbody{animation:fi .35s ease;padding-bottom:10px}
 .mem-founder .mem-bio{font-size:.88rem;line-height:2.1}
 .mem-founder .mem-foot{padding-top:22px}
 .mem-founder .mem-link{padding:10px 28px;font-size:.78rem}
-/* メンバー：プロジェクトごとのチーム。PCは「左に見出し・右に一覧」、スマホは縦積み */
-.mem-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:-6px 0 36px}
-.mem-legend button{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:40px;border:1px solid var(--mrole-bd);background:#fff;font-family:'Noto Sans JP',sans-serif;font-size:.74rem;letter-spacing:.08em;color:var(--mstrong);cursor:pointer;transition:background .2s}
-.mem-legend button:hover{background:var(--mrole-bg)}
-.mem-legend i{width:8px;height:8px;border-radius:50%;background:var(--mstrong);opacity:.75}
-.teams{display:flex;flex-direction:column;gap:28px}
-.team{display:grid;grid-template-columns:260px 1fr;background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.05);border:1px solid var(--mbd);scroll-margin-top:88px}
-.team-head{background:var(--mhead);padding:40px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px}
-.team-name{font-family:'Cormorant Garamond','Noto Serif JP',serif;font-size:2.8rem;font-weight:400;line-height:1;letter-spacing:.02em;color:var(--mstrong)}
-.team-sub{font-size:.72rem;letter-spacing:.22em;color:var(--mstrong);opacity:.8}
-.team-desc{display:inline-block;margin-top:12px;padding:5px 14px;border-radius:20px;background:rgba(255,255,255,.6);font-size:.72rem;letter-spacing:.04em;white-space:nowrap;color:var(--mstrong)}
-.team-list{list-style:none;padding:8px 44px}
-.mate{display:grid;grid-template-columns:64px 1fr;gap:22px;padding:30px 0;border-top:1px solid var(--mln)}
-.mate:first-child{border-top:none}
-.mate .mem-av{width:64px;height:64px;font-size:1.6rem;margin:0}
-.mate-main{min-width:0}
-.mate-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}
-.mate-name{font-family:'Noto Serif JP',serif;font-size:1.18rem;color:var(--ink);letter-spacing:.04em}
-.mate-kana{font-size:.72rem;letter-spacing:.12em;color:var(--mc)}
-.mate-roles{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 14px}
-.mate-role{display:inline-block;padding:3px 14px;border-radius:20px;border:1px solid var(--mrole-bd);background:var(--mrole-bg);font-size:.7rem;line-height:1.7;letter-spacing:.1em;color:var(--mstrong)}
-.mate-role.is-lead{background:var(--mstrong);border-color:var(--mstrong);color:#fff}
-.mate-bio{font-size:.84rem;line-height:2.05;color:var(--tl);word-break:auto-phrase}
-.mate .mem-link{margin-top:16px}
-.mem-cta{text-align:center;margin-top:48px}
+/* メンバー：プロジェクトごとに「見出し＋カード」。カードはPC3列・タブレット2列・スマホ1列で中央寄せ */
+.teams{display:flex;flex-direction:column;gap:64px}
+.team-ttl{display:flex;align-items:center;gap:20px;margin-bottom:28px;font-weight:400}
+.team-ttl::before,.team-ttl::after{content:'';flex:1 1 0;height:1px;background:linear-gradient(to right,transparent,var(--mln))}
+.team-ttl::after{background:linear-gradient(to left,transparent,var(--mln))}
+.team-name{font-family:'Cormorant Garamond','Noto Serif JP',serif;font-size:2rem;font-weight:400;line-height:1;letter-spacing:.03em;color:var(--mstrong)}
+.team-sub{font-size:.66rem;letter-spacing:.24em;color:var(--mc);padding-left:14px;border-left:1px solid var(--mrole-bd);line-height:1.6}
+.team-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:24px}
+.mem-card{position:relative;flex:0 1 calc((100% - 48px) / 3);background:#fff;border-radius:20px;padding:40px 30px 32px;box-shadow:0 4px 24px rgba(0,0,0,.04);border:1px solid var(--mbd);text-align:center;display:flex;flex-direction:column;align-items:center;transition:transform .3s,box-shadow .3s}
+.mem-card::before{content:'';position:absolute;top:0;left:50%;width:48px;height:3px;border-radius:0 0 3px 3px;background:var(--mstrong);opacity:.55;transform:translateX(-50%)}
+.mem-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.07)}
+.mem-card .mem-line,.mem-card .mem-bio{align-self:stretch}
+.mem-roles{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.mem-role.is-lead{background:var(--mstrong);border-color:var(--mstrong);color:#fff}
+.mem-cta{text-align:center;margin-top:64px}
 .mem-cta .btn{font-size:.85rem}
-@media(max-width:900px){
-  .team{grid-template-columns:230px 1fr}
-  .team-list{padding:8px 32px}
+@media(max-width:1023px){
+  .mem-card{flex-basis:calc((100% - 24px) / 2)}
 }
 @media(max-width:768px){
   .mem-hero{padding:56px 20px}
   .mem-wrap{padding:44px 20px 64px}
   .mem-sep{margin:44px auto}
+  .teams{gap:48px}
 }
 @media(max-width:680px){
-  .teams{gap:20px}
-  .team{grid-template-columns:1fr;border-radius:22px}
-  .team-head{flex-direction:row;justify-content:flex-start;text-align:left;gap:16px;padding:22px 24px}
-  .team-name{font-size:2.1rem}
-  .team-meta{min-width:0}
-  .team-desc{margin-top:6px;padding:3px 12px;font-size:.68rem;white-space:normal}
-  .team-list{padding:4px 24px}
-  .mate{grid-template-columns:52px 1fr;gap:6px 16px;padding:24px 0;align-items:center}
-  .mate-main{display:contents}
-  .mate .mem-av{width:52px;height:52px;font-size:1.35rem;grid-row:span 2}
-  .mate-top,.mate-roles{grid-column:2}
-  .mate-roles{margin:0}
-  .mate-bio{grid-column:1 / -1;margin-top:12px}
-  .mate .mem-link{grid-column:1 / -1;justify-self:start;margin-top:8px}
+  .team-ttl{gap:14px;margin-bottom:20px}
+  .team-name{font-size:1.7rem}
+  .team-sub{padding-left:10px;letter-spacing:.16em}
+  .team-grid{gap:16px}
+  .mem-card{flex-basis:100%;padding:34px 24px 28px}
   .mem-founder{flex-direction:column;gap:20px;padding:36px 24px 32px;text-align:center}
   .mem-founder .mem-av{width:96px;height:96px;font-size:2rem}
   .mem-founder .mem-line{background:linear-gradient(to right,transparent,var(--mln),transparent)}
   .mem-founder .mem-bio{font-size:.85rem}
-  .mem-cta{margin-top:40px}
+  .mem-cta{margin-top:48px}
 }
 </style>
 </head>
@@ -720,113 +701,79 @@ details.more .mbody{animation:fi .35s ease;padding-bottom:10px}
 
     <div class="mem-sep"></div>
 
-    <!-- Members：プロジェクトごとのチーム表示
-         ・プロジェクトを増やす：CSSの「所属ごとの色」に .t-○○ を1行足し、下の <section class="team t-○○" id="team-○○"> を1つ複製して書き換える。凡例（mem-legend）にもボタンを1つ足す。
-         ・プロジェクトを減らす：該当の section と凡例ボタンを消す。
-         ・メンバーを増やす／減らす：該当チームの <li class="mate"> を複製／削除する。
-         ・ポジション：<span class="mate-role">に書く。リーダーなど目立たせたい役職は class="mate-role is-lead"。役職が複数ならspanを並べる。
+    <!-- Members：プロジェクトごとに見出し＋カード
+         ・プロジェクトを増やす：CSSの「所属ごとの色」に .t-○○ を1行足し、<section class="team t-○○"> を1つ複製して見出しとカードを書き換える。
+         ・プロジェクトを減らす：該当の section を消す。
+         ・メンバーを増やす／減らす：該当チームの <div class="mem-card"> を複製／削除する（カードは自動で中央に並ぶ）。
+         ・ポジション：<span class="mem-role">に書く。リーダーなど目立たせたい役職は class="mem-role is-lead"。複数ならspanを並べる。
          ・複数のプロジェクトに入る人は、それぞれのチームに置く。 -->
     <section>
       <div class="mem-lbl">Members</div>
-      <div class="mem-legend">
-        <button type="button" class="t-yui" onclick="document.getElementById('team-yui').scrollIntoView({behavior:'smooth',block:'start'})"><i></i>You&amp;i（結）</button>
-        <button type="button" class="t-space" onclick="document.getElementById('team-space').scrollIntoView({behavior:'smooth',block:'start'})"><i></i>Space</button>
-        <button type="button" class="t-gallery" onclick="document.getElementById('team-gallery').scrollIntoView({behavior:'smooth',block:'start'})"><i></i>Gallery</button>
-        <button type="button" class="t-note" onclick="document.getElementById('team-note').scrollIntoView({behavior:'smooth',block:'start'})"><i></i>Note</button>
-      </div>
       <div class="teams">
 
-        <!-- You&i（結）全体 -->
-        <section class="team t-yui" id="team-yui">
-          <div class="team-head">
-            <div class="team-name">結</div>
-            <div class="team-meta">
-              <div class="team-sub">You&amp;i（結）</div>
-              <p class="team-desc">想いの結び目をつくる</p>
-            </div>
-          </div>
-          <ul class="team-list">
-            <li class="mate">
+        <section class="team t-yui">
+          <h3 class="team-ttl"><span class="team-name">結</span><span class="team-sub">You&amp;i（結）</span></h3>
+          <div class="team-grid">
+            <div class="mem-card">
               <div class="mem-av">甲</div>
-              <div class="mate-main">
-                <div class="mate-top"><span class="mate-name">甲斐 響大</span><span class="mate-kana">かい きょうた</span></div>
-                <div class="mate-roles"><span class="mate-role">メンバー</span></div>
-                <p class="mate-bio">九州産業大学商学部に在籍。宮崎県出身。自認フッ軽系の人間のため、2025年は通算40日以上大阪にいた。基本的にしゃべることか食べることしかできないため、他団体では宴会部長を兼任することが多い。</p>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <!-- You&i Space -->
-        <section class="team t-space" id="team-space">
-          <div class="team-head">
-            <div class="team-name">Space</div>
-            <div class="team-meta">
-              <div class="team-sub">You&amp;i Space</div>
-              <p class="team-desc">支援者支援</p>
+              <div class="mem-name">甲斐 響大</div>
+              <div class="mem-kana">かい きょうた</div>
+              <div class="mem-roles"><span class="mem-role">メンバー</span></div>
+              <div class="mem-line"></div>
+              <p class="mem-bio">九州産業大学商学部に在籍。宮崎県出身。自認フッ軽系の人間のため、2025年は通算40日以上大阪にいた。基本的にしゃべることか食べることしかできないため、他団体では宴会部長を兼任することが多い。</p>
             </div>
           </div>
-          <ul class="team-list">
-            <li class="mate">
+        </section>
+
+        <section class="team t-space">
+          <h3 class="team-ttl"><span class="team-name">Space</span><span class="team-sub">You&amp;i Space</span></h3>
+          <div class="team-grid">
+            <div class="mem-card">
               <div class="mem-av">鈴</div>
-              <div class="mate-main">
-                <div class="mate-top"><span class="mate-name">鈴木 遥乃花</span><span class="mate-kana">すずき ののか</span></div>
-                <div class="mate-roles"><span class="mate-role is-lead">プロジェクトリーダー</span></div>
-                <p class="mate-bio">三重大学医学部在籍。旅をすることが好きで、旅先での様々な出会いを大切にしている。人と人とが優しく温かくつながる場所をつくっていきたい。</p>
-              </div>
-            </li>
-            <li class="mate">
+              <div class="mem-name">鈴木 遥乃花</div>
+              <div class="mem-kana">すずき ののか</div>
+              <div class="mem-roles"><span class="mem-role is-lead">プロジェクトリーダー</span></div>
+              <div class="mem-line"></div>
+              <p class="mem-bio">三重大学医学部在籍。旅をすることが好きで、旅先での様々な出会いを大切にしている。人と人とが優しく温かくつながる場所をつくっていきたい。</p>
+            </div>
+            <div class="mem-card">
               <div class="mem-av">岡</div>
-              <div class="mate-main">
-                <div class="mate-top"><span class="mate-name">岡本 真子</span><span class="mate-kana">おかもと まこ</span></div>
-                <div class="mate-roles"><span class="mate-role">メンバー</span></div>
-                <p class="mate-bio">岡山県立岡山芳泉高等学校在籍。自身も海に近い地域で育ち、自然の豊かさと共に、常に隣り合わせにある災害のリスクを肌で感じてきた。その経験から災害支援の重要性に強い関心を抱いている。</p>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <!-- You&i Gallery -->
-        <section class="team t-gallery" id="team-gallery">
-          <div class="team-head">
-            <div class="team-name">Gallery</div>
-            <div class="team-meta">
-              <div class="team-sub">You&amp;i Gallery</div>
-              <p class="team-desc">出会い・交流・オフラインの場</p>
+              <div class="mem-name">岡本 真子</div>
+              <div class="mem-kana">おかもと まこ</div>
+              <div class="mem-roles"><span class="mem-role">メンバー</span></div>
+              <div class="mem-line"></div>
+              <p class="mem-bio">岡山県立岡山芳泉高等学校在籍。自身も海に近い地域で育ち、自然の豊かさと共に、常に隣り合わせにある災害のリスクを肌で感じてきた。その経験から災害支援の重要性に強い関心を抱いている。</p>
             </div>
           </div>
-          <ul class="team-list">
-            <li class="mate">
+        </section>
+
+        <section class="team t-gallery">
+          <h3 class="team-ttl"><span class="team-name">Gallery</span><span class="team-sub">You&amp;i Gallery</span></h3>
+          <div class="team-grid">
+            <div class="mem-card">
               <div class="mem-av">山</div>
-              <div class="mate-main">
-                <div class="mate-top"><span class="mate-name">山岸 荘汰</span><span class="mate-kana">やまぎし そうた</span></div>
-                <div class="mate-roles"><span class="mate-role">メンバー</span></div>
-                <p class="mate-bio">千葉大学修士2年。400人規模の学生団体の代表を経験。大阪・関西万博でも複数プロジェクトの企画を推進。</p>
-                <a class="mem-link" href="https://www.instagram.com/sota1023__" target="_blank" rel="noopener">Instagram →</a>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <!-- You&i Note -->
-        <section class="team t-note" id="team-note">
-          <div class="team-head">
-            <div class="team-name">Note</div>
-            <div class="team-meta">
-              <div class="team-sub">You&amp;i Note</div>
-              <p class="team-desc">知る・旅と記録</p>
+              <div class="mem-name">山岸 荘汰</div>
+              <div class="mem-kana">やまぎし そうた</div>
+              <div class="mem-roles"><span class="mem-role">メンバー</span></div>
+              <div class="mem-line"></div>
+              <p class="mem-bio">千葉大学修士2年。400人規模の学生団体の代表を経験。大阪・関西万博でも複数プロジェクトの企画を推進。</p>
+              <div class="mem-foot"><a class="mem-link" href="https://www.instagram.com/sota1023__" target="_blank" rel="noopener">Instagram →</a></div>
             </div>
           </div>
-          <ul class="team-list">
-            <li class="mate">
+        </section>
+
+        <section class="team t-note">
+          <h3 class="team-ttl"><span class="team-name">Note</span><span class="team-sub">You&amp;i Note</span></h3>
+          <div class="team-grid">
+            <div class="mem-card">
               <div class="mem-av">辰</div>
-              <div class="mate-main">
-                <div class="mate-top"><span class="mate-name">辰川 友麻</span><span class="mate-kana">たつかわ ゆま</span></div>
-                <div class="mate-roles"><span class="mate-role">メンバー</span></div>
-                <p class="mate-bio">日本赤十字広島看護大学在籍。食が好き。ジャンルを問わず本を読み、知らない世界を気ままに旅している。誰がどこで何をしているのか、人はどう生き、どう死ぬのか。気になることは尽きないけれど、人類について考えながら、今日のごはんについても考えている。</p>
-              </div>
-            </li>
-          </ul>
+              <div class="mem-name">辰川 友麻</div>
+              <div class="mem-kana">たつかわ ゆま</div>
+              <div class="mem-roles"><span class="mem-role">メンバー</span></div>
+              <div class="mem-line"></div>
+              <p class="mem-bio">日本赤十字広島看護大学在籍。食が好き。ジャンルを問わず本を読み、知らない世界を気ままに旅している。誰がどこで何をしているのか、人はどう生き、どう死ぬのか。気になることは尽きないけれど、人類について考えながら、今日のごはんについても考えている。</p>
+            </div>
+          </div>
         </section>
 
       </div>
